@@ -1,5 +1,5 @@
 import * as fs from "fs";
-import * as firebase from "firebase";
+import * as firebase from "firebase/app";
 
 const firebaseConfig = JSON.parse(fs.readFileSync("firebaseConfig", 'utf8'));
 

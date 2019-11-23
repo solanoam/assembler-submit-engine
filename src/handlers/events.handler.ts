@@ -25,6 +25,8 @@ export class EventsHandler implements IEventsHandler {
             this.fetchEvents();
             this.events.forEach((e: IEvent) => {
                 this.handleEvent(e)
+                    .then()
+                    .catch()
             })
         }
     }
