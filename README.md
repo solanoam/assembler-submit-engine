@@ -4,8 +4,8 @@ An automated emulation engine for 8086 assembler
 
 ### Prerequisites
 
-# Docker
-# Node
+#### Docker
+#### Node
 
 ### Installing
 
@@ -31,10 +31,10 @@ Run this bash run script to get going:
 ## Authors
 
 Developed by:
-Noam Solan - solanoam (github.com/solnoam)
-Guy Salman - guysalman1 (github.com/guysalman1)
+#### Noam Solan - solanoam (github.com/solnoam)
+#### Guy Salman - guysalman1 (github.com/guysalman1)
 
-Under the coaching of Ran Gelles (BIU)
+#### Under the coaching of Ran Gelles (BIU)
 
 See also the list of [contributors](https://github.com/solanoam/assembler-submit-engine/contributors) who participated in this project.
 
