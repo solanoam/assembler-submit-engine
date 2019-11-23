@@ -4,8 +4,8 @@ An automated emulation engine for 8086 assembler
 
 ### Prerequisites
 
-Docker
-Node
+# Docker
+# Node
 
 ### Installing
 
