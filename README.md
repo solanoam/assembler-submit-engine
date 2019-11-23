@@ -1,6 +1,6 @@
 # 8086 Assembler Emulation Engine
 
-An automated emulation engine for 8086 assembler
+An automated emulation engine for 8086 assembler projects
 
 ### Prerequisites
 
@@ -29,7 +29,7 @@ Run this bash run script to get going:
     * [winston](https://github.com/winstonjs/winston)
     * [moment](https://www.npmjs.com/package/moment)
 * [TypeScript](https://github.com/microsoft/TypeScript)
-* [npm](https://github.com/npm/cli)
+* [yarn](https://github.com/yarnpkg/yarn)
 * [Firebase](https://github.com/firebase/)
 * [DOSBox](https://www.dosbox.com/)
 * [MASM (Microsoft Macro Assembler)](https://www.microsoft.com/en-in/download/details.aspx?id=12654)
