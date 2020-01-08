@@ -20,11 +20,13 @@ export class EventsHandler implements IEventsHandler {
         return this.eventController.fetchNewerEvents();
     }
 
-    eventsScheduler() {
+    eventsScheduler(): void {
         while (true) {
-            this.fetchEvents();
+            this.events = this.fetchEvents();
             this.events.forEach((e: IEvent) => {
                 this.handleEvent(e)
+                    .then()
+                    .catch()
             })
         }
     }
@@ -32,6 +34,5 @@ export class EventsHandler implements IEventsHandler {
     async handleEvent(event: IEvent) {
         const eventContainer = new ContainerHandler(event);
     }
-
 
 }
