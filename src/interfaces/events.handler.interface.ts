@@ -5,6 +5,6 @@ export interface IEventsHandler {
     lastEventTimestamp: number
     eventController: IEventController
     events: IEvent[];
-    eventsScheduler();
+    eventsScheduler(): void;
     fetchEvents(): IEvent[];
 }
