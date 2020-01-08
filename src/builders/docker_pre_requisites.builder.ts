@@ -1,4 +1,4 @@
-import {IDockerPreRequisitesBuilder} from "../interfaces/docker_pre_requisites.handler.interface";
+import {IDockerPreRequisitesBuilder} from "../interfaces/docker_pre_requisites.builder.interface";
 import {IEvent} from "../interfaces/event.interface";
 import {FolderBuilder} from "./folder.builder";
 import {FileBuilder} from "./file.builder";
