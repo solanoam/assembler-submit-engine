@@ -1,7 +1,7 @@
 import {IEvent} from "../interfaces/event.interface";
 import {IContainerHandler} from "../interfaces/container.handler.interface";
-import {IDockerPreRequisitesBuilder} from "../interfaces/docker_pre_requisites.handler.interface";
-import {DockerPreRequisitesBuilder} from "./docker_pre_requisites.handler";
+import {IDockerPreRequisitesBuilder} from "../interfaces/docker_pre_requisites.builder.interface";
+import {DockerPreRequisitesBuilder} from "../builders/docker_pre_requisites.builder";
 
 export class ContainerHandler implements IContainerHandler {
     event: IEvent;
