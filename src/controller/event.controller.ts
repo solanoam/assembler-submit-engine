@@ -1,6 +1,6 @@
 import {IEventController} from "../interfaces/event.controller.interface";
 import {IEvent} from "../interfaces/event.interface";
-import {firebaseClient} from "../index";
+import {firebaseClient} from "../../index";
 import * as firebase from "firebase";
 import {collectionNames} from "../../consts";
 

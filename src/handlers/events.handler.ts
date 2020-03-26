@@ -32,7 +32,7 @@ export class EventsHandler implements IEventsHandler {
     }
 
     async handleEvent(event: IEvent) {
-        const eventContainer = new ContainerHandler(event);
+        const eventContainer = new ContainerHandler(event).getResults();
     }
 
 }

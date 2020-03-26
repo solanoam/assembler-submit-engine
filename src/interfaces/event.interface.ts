@@ -17,6 +17,10 @@ export interface IEvent {
     statusTimestamp?: number
 }
 
+export interface IEventEnriched extends IEvent {
+    textResults: string
+}
+
 export interface IEventServices {
     eventController: IEventController
 }
