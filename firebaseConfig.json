@@ -1,8 +1,10 @@
 {
-  "apiKey": "<your-api-key>",
-  "authDomain": "<your-auth-domain>",
-  "databaseURL": "<your-database-url>",
-  "projectId": "<your-cloud-firestore-project>",
-  "storageBucket": "<your-storage-bucket>",
-  "messagingSenderId": "<your-sender-id>"
+  "apiKey": "AIzaSyCIZ7nppVefj5J9YmSMsMqUzB6q-k4LB0Q",
+  "authDomain": "asm-learn.firebaseapp.com",
+  "databaseURL": "https://asm-learn.firebaseio.com",
+  "projectId": "asm-learn",
+  "storageBucket": "asm-learn.appspot.com",
+  "messagingSenderId": "950500131040",
+  "appId": "1:950500131040:web:317e9cacddd75c5ab89085",
+  "measurementId": "G-1501SRMPFS"
 }

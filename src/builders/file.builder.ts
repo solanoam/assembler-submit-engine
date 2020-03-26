@@ -3,17 +3,20 @@ import {asmFileName} from "../../consts";
 
 interface IFileBuilder {
     code: string
+    folderPath: string
 }
 
 export class FileBuilder implements IFileBuilder {
     code: string;
+    folderPath: string;
 
-    constructor(code: string) {
-        this.code = code
+    constructor(code: string, path: string) {
+        this.code = code;
+        this.folderPath = path;
     }
 
     public build(){
-        fs.appendFile(asmFileName, this.code, this.handlePostFileBuild());
+        fs.appendFile(`${this.folderPath}/${asmFileName}`, this.code, this.handlePostFileBuild());
     }
 
     private handlePostFileBuild() {

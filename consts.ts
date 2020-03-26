@@ -4,7 +4,12 @@ export enum collectionNames {
 
 export const asmFileName = 'userCode.asm';
 export const scriptFilePaths = [
-    'src/dos/graphicModeGraphicPortDump.asm',
-    'src/dos/graphicPortDump.asm',
-    'src/dos/runScript.bat'
+    'dos/graphicModeGraphicPortDump.asm',
+    'dos/graphicPortDump.asm',
+    'dos/runScript.bat'
 ];
+export const masmBineriesPath = "/home/masm"
+export const executionCommandPrefix = `docker run -d`
+export const dosboxDockerImage = `jgoerzen/dosbox`
+export const dosboxMasmBineriesDrive = `/dos/drive_c/`
+export const dosboxSrcDrive = `/dos/drive_d/`
