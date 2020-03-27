@@ -18,7 +18,7 @@
       "firebase-functions": "^3.3.0"
    },
    "scripts": {
-      "install": "/bin/bash /bin/install.sh",
+      "install": "/bin/bash /bin/install.node.sh && /bin/bash /bin/install.docker.sh && /bin/bash /bin/install.masm.sh",
       "start": "ts-node src/index.ts"
    }
 }

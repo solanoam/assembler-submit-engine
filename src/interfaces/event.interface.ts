@@ -1,5 +1,6 @@
 import {IEventConfigStep} from "./event_config.interface";
 import {IEventController} from "./event.controller.interface";
+import { IResults } from '../handlers/results.handler';
 
 export enum EventStatuses {
     NotTested = 0,
@@ -18,7 +19,7 @@ export interface IEvent {
 }
 
 export interface IEventEnriched extends IEvent {
-    textResults: string
+    textResults: IResults
 }
 
 export interface IEventServices {

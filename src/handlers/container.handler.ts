@@ -3,30 +3,33 @@ import {IContainerHandler} from "../interfaces/container.handler.interface";
 import {IDockerPreRequisitesBuilder} from "../interfaces/docker_pre_requisites.builder.interface";
 import {DockerPreRequisitesBuilder} from "../builders/docker_pre_requisites.builder";
 import { exec } from "child_process";
+import ContainerHealthManager, { IContainerHealthManager } from '../managers/container_health.manager';
+import { IResults } from './results.handler';
 
 export class ContainerHandler implements IContainerHandler {
     event: IEvent;
     dockerPreRequisitesBuilder: IDockerPreRequisitesBuilder;
     executionCommand: string;
-    containerHealthManager
+    folderPath: string;
+    containerHealthManager: IContainerHealthManager;
+    results: IResults
 
-    constructor(event: IEvent) {
+    constructor (event: IEvent) {
         this.event = event;
-        this.dockerPreRequisitesBuilder = new DockerPreRequisitesBuilder(this.event)
-        this.executionCommand = this.dockerPreRequisitesBuilder.build()
-        this.containerHealthManager = new ContainerHealthManager()
+        this.dockerPreRequisitesBuilder = new DockerPreRequisitesBuilder(this.event);
+        const dockerPreRequisites = this.dockerPreRequisitesBuilder.build();
+        this.folderPath = dockerPreRequisites.folderName;
+        this.executionCommand = dockerPreRequisites.executionCommand;
+        this.containerHealthManager = new ContainerHealthManager(this.folderPath);
     }
 
-    public getResults(): IEventEnriched{
+    public getResults = (): IEventEnriched => {
         const results = this.runContainer()
-        return {...this.event, textResults: results}
+        return {...this.event, textResults: this.results}
     }
 
-    private runContainer = (): string => {
+    private runContainer = (): void => {
         exec(this.executionCommand, this.containerHealthManager.initDocker)
+        this.results = this.containerHealthManager.getResults()
     }
-
-    
-
-
 }

@@ -6,6 +6,11 @@ import {IScriptFileBuilderParams, ScriptFilesBuilder} from "./script_files.build
 import {scriptFilePaths} from "../../consts";
 import ExecutionCommandBuilder from "./execution_command.builder";
 
+export interface IDockerPreRequisites {
+    executionCommand: string
+    folderName: string
+}
+
 export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
     event: IEvent;
     folderName: string;
@@ -16,12 +21,15 @@ export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
         this.folderName = this.event.id.toString();
     }
 
-    public build = (): string => {
+    public build = (): IDockerPreRequisites => {
         this.handleFolderBuilder();
         this.handleFileBuilder();
         this.handleScriptFilesBuilder();
         this.handleExecutionCommandBuilder();
-        return this.executionCommand
+        return { 
+            folderName: this.folderName, 
+            executionCommand: this.executionCommand
+        }
     }
 
     private handleFolderBuilder() {
