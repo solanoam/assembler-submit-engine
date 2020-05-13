@@ -1,0 +1,3 @@
+yarn run v1.22.0
+$ yarn build && node build/index.js
+$ tsc

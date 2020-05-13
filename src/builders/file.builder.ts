@@ -1,27 +1,25 @@
 import * as fs from "fs";
 import {asmFileName} from "../../consts";
+import { IEvent } from '../interfaces/event.interface';
 
 interface IFileBuilder {
-    code: string
-    folderPath: string
+    event: IEvent
+    folderPath: string;
 }
 
 export class FileBuilder implements IFileBuilder {
-    code: string;
+    event: IEvent;
     folderPath: string;
 
-    constructor(code: string, path: string) {
-        this.code = code;
-        this.folderPath = path;
+    constructor(event: IEvent, folderpath: string) {
+        this.event = event
+        this.folderPath = folderpath;
     }
 
     public build(){
-        fs.appendFile(`${this.folderPath}/${asmFileName}`, this.code, this.handlePostFileBuild());
-    }
-
-    private handlePostFileBuild() {
-        return function (err) {
-            if (err) throw err;
-        };
+        const { file } = this.event
+        file.download({
+            destination: this.folderPath
+        }, (err)=>{console.error(err)})
     }
 }
