@@ -12,7 +12,7 @@ export class ContainerHandler implements IContainerHandler {
     executionCommand: string;
     folderPath: string;
     containerHealthManager: IContainerHealthManager;
-    results: IResults
+    results: IResults;
 
     constructor (event: IEvent) {
         this.event = event;
@@ -24,12 +24,12 @@ export class ContainerHandler implements IContainerHandler {
     }
 
     public getResults = (): IEventEnriched => {
-        const results = this.runContainer()
-        return {...this.event, textResults: this.results}
-    }
+        this.runContainer();
+        return {...this.event, output: this.results}
+    };
 
     private runContainer = (): void => {
-        exec(this.executionCommand, this.containerHealthManager.initDocker)
+        exec(this.executionCommand, this.containerHealthManager.initDocker);
         this.results = this.containerHealthManager.getResults()
-    }
+    };
 }

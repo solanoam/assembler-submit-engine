@@ -3,22 +3,27 @@
    "version": "0.1",
    "description": "",
    "license": "APACHE",
+   "main": "index.js",
    "repository": "https://github.com/solanoam/assembler-submit-engine",
    "devDependencies": {
+      "@firebase/firestore-types": "^1.8.0",
       "@types/node": "^8.0.29",
-      "ts-node": "3.3.0",
-      "typescript": "^3.7.2",
-      "@firebase/firestore-types": "^1.8.0"
+      "ts-node": "^8.5.2",
+      "typescript": "3.7.2"
    },
    "dependencies": {
       "axios": "^0.19.0",
+      "express": "4.17.1",
+      "express-query-int": "^3.0.0",
+      "firebase": "^7.5.0",
+      "firebase-functions": "^3.3.0",
       "moment": "^2.22.1",
       "winston": "^3.2.1",
-      "firebase": "^7.5.0",
-      "firebase-functions": "^3.3.0"
+      "firebase-admin": "^8.10.0"
    },
    "scripts": {
-      "install": "/bin/bash /bin/install.node.sh && /bin/bash /bin/install.docker.sh && /bin/bash /bin/install.masm.sh",
-      "start": "ts-node src/index.ts"
+      "env_install": "/bin/bash /bin/install.node.sh && /bin/bash /bin/install.docker.sh && /bin/bash /bin/install.masm.sh",
+      "build": "tsc",
+      "start": "yarn build && node build/index.js"
    }
 }

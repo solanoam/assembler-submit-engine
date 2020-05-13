@@ -1,29 +1,29 @@
 import {IEventController} from "../interfaces/event.controller.interface";
 import {IEvent} from "../interfaces/event.interface";
-import {firebaseClient} from "../../index";
-import * as firebase from "firebase";
+import * as admin from "firebase-admin" 
 import {collectionNames} from "../../consts";
 
 export class EventController implements IEventController {
-    eventsCollection: firebase.firestore.CollectionReference;
+    eventsStorage: admin.storage.Storage;
+    eventsBucket: string
 
-    constructor() {
-        this.eventsCollection = firebaseClient.collection(collectionNames.events);
+    constructor(eventsStorage: admin.storage.Storage, eventsBucket: string) {
+        this.eventsStorage = eventsStorage
+        this.eventsBucket = eventsBucket
     }
 
-    public getEvent(eventId: number): IEvent {
-        return this.eventsCollection.get(eventId)
+
+    public async getEvent(path: string): Promise<IEvent> {
+        console.log(this.eventsBucket)
+        const files = await this.eventsStorage.bucket(this.eventsBucket).getFiles()
+        //TODO make it work
+        const filterdFiles = files.filter(f=>f.name.includes('path'))
+        filterdFiles.forEach(f=>console.log(f.name))
+        return {} as IEvent
     }
 
     public saveEvent(event: IEvent) {
-        this.eventsCollection.set(...event)
-    }
-
-    public fetchNewerEvents(): IEvent[] {
-        const where = {statusTimestamp: {
-            key:"statusTimestamp", value: null
-        }};
-        return this.eventsCollection.getAll(where);
+        return {}
     }
 
 }

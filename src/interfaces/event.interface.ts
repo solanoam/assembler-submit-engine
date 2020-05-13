@@ -16,10 +16,14 @@ export interface IEvent {
     code: string
     status?: EventStatuses
     statusTimestamp?: number
+    path: string
+    userID: string
+    taskID: string
+    testcaseID: string
 }
 
 export interface IEventEnriched extends IEvent {
-    textResults: IResults
+    output: IResults
 }
 
 export interface IEventServices {

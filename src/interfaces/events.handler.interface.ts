@@ -1,10 +1,7 @@
 import {IEvent} from "./event.interface";
 import {IEventController} from "./event.controller.interface";
+import { EventController } from '../controller/event.controller';
 
 export interface IEventsHandler {
-    lastEventTimestamp: number
-    eventController: IEventController
-    events: IEvent[];
-    eventsScheduler(): void;
-    fetchEvents(): IEvent[];
+    handleEvent(IEvent): any
 }
