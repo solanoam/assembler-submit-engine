@@ -1,39 +1,34 @@
 import { now } from "moment";
 import * as admin from 'firebase-admin'
-import axios from 'axios' 
-import { EventController } from './src/controller/event.controller';
-
-const serviceAccount = "./config/firebase/firebase.json"
-
+import { SERVICE_ACCOUNT_CONFIG, SERVICE_ACCOUNT_URL, STORAGE_BUCKET, USER_SUBMISSIONS_FOLDER } from "./consts";
+import { EventsHandler } from './src/handlers/events.handler';
+import { EventController } from "./src/controller/event.controller";
+import { postEventHandlerTrigger } from "./src/services/post.event.handler.trigger";
+import { IEventMeta } from './src/interfaces/event.interface';
 admin.initializeApp({
-  credential: admin.credential.cert(serviceAccount),
-  databaseURL: "https://asm-learn.firebaseio.com"
+  credential: admin.credential.cert(SERVICE_ACCOUNT_CONFIG),
+  databaseURL: SERVICE_ACCOUNT_URL
 });
 
-interface IEventMeta {
-  path: string,
-  userID: string,
-  taskID: string
-}
-let num;
-let time
-time = now()
+const storage = admin.storage().bucket(STORAGE_BUCKET)
+
 admin.database().ref("usersSubmissions").on("child_added", dataSnapshot => {
-  const { taskID, testcaseID, userID } = dataSnapshot.val()
-  console.log(`new event ${dataSnapshot.key}: ${taskID}, ${userID}, ${testcaseID}. elapsed time ${now()-time}`)
-  const requestPayload = {
-    params : {
-      token: "z^mp0a6tPS8hAQZ@RfZg^dvxKOCEw(Pc",
-      eventID: dataSnapshot.key,
-      userID,
-      taskID,
-      testcaseID,
-      statusCode: 200,
-      output: "147"
-    }
-  }
-  const url = 'https://us-central1-asm-learn.cloudfunctions.net/resultFromEngine'
-  time = now()
-  axios.get(url, requestPayload).then(()=> console.log(`get request was sent to ${url} with payload: ${JSON.stringify(requestPayload)}. elapsed time ${now()-time}`))
+  const eventMeta: IEventMeta = {...dataSnapshot.val(), id: dataSnapshot.key}
+  console.log(`new event ${eventMeta.id}: ${eventMeta.taskID}, ${eventMeta.userID}, ${eventMeta.testcaseID}.`)
+  new EventsHandler(new EventController(storage), new postEventHandlerTrigger()).handleEvent(eventMeta)
+    .then(()=>{
+      console.log(`submit-engine has finished running for event ${eventMeta.id}`)
+    })
+    .catch((e)=>{
+      console.error(`submit-engine got an error: ${e}`)
+      console.error(`${e.stack}`)
+      console.trace()
+    })
 })
+
+
+
+
+
+
 

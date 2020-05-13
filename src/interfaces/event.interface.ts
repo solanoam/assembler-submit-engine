@@ -1,6 +1,15 @@
 import {IEventConfigStep} from "./event_config.interface";
 import {IEventController} from "./event.controller.interface";
 import { IResults } from '../handlers/results.handler';
+import { FileBuilder } from '../builders/file.builder';
+
+export interface IEventMeta {
+    id: string
+    path: string,
+    userID: string,
+    taskID: string
+    testcaseID: string
+}
 
 export enum EventStatuses {
     NotTested = 0,
@@ -10,12 +19,11 @@ export enum EventStatuses {
 }
 
 export interface IEvent {
-    id: number
+    id: string
     eventTimestamp: number
-    config: IEventConfigStep[]
-    code: string
     status?: EventStatuses
     statusTimestamp?: number
+    file: any,
     path: string
     userID: string
     taskID: string
