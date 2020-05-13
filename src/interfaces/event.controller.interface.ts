@@ -1,8 +1,8 @@
 import {IEvent} from "./event.interface";
-import * as firebase from "firebase";
+import * as admin from "firebase-admin" 
 
 export interface IEventController {
-    eventsCollection: firebase.firestore.CollectionReference
-    getEvent(eventId: number): IEvent
-    fetchNewerEvents(): IEvent[]
+    eventsStorage: admin.storage.Storage
+    eventsBucket: string
+    getEvent(path: string): Promise<IEvent>
 }
