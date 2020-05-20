@@ -5,20 +5,21 @@ export enum collectionNames {
 export const MAX_CONTAINER_TIMEOUT = 30000
 export const CONTAINER_POLLING_INTERVAL = 200
 
-export const resultsFileName = "txtDump.txt"
-export const compiledFileName = "userCode.exe"
+export const resultsFileName = "TD.txt"
+export const compiledFileName = "UC.exe"
 
-export const asmFileName = 'userCode.asm';
+export const asmFileName = 'UC.asm';
 export const scriptFilePaths = [
-    'dos/graphicModeGraphicPortDump.asm',
-    'dos/graphicPortDump.asm',
-    'dos/runScript.bat'
+    'dos/GMGPD.asm',
+    'dos/GPD.asm',
+    'dos/RS.bat'
 ];
-export const masmBineriesPath = "/home/masm"
+export const masmBineriesPath = "/Users/noam5456/Downloads/masm611"
 export const executionCommandPrefix = `docker run -d`
-export const dosboxDockerImage = `jgoerzen/dosbox`
+export const dosboxDockerImage = `assemlearn-engine-docker:latest`
 export const dosboxMasmBineriesDrive = `/dos/drive_c/`
 export const dosboxSrcDrive = `/dos/drive_d/`
+export const dockerImageCommand = '/usr/bin/supervisord -n -c /etc/supervisor/supervisord.conf'
 
 export const DEFAULT_ENCODING = 'utf8'
 export const POST_EVENT_HANDLER_ENDPOINT = 'https://us-central1-asm-learn.cloudfunctions.net/resultFromEngine'
