@@ -1,4 +1,4 @@
-import { masmBineriesPath, executionCommandPrefix, dosboxDockerImage, dosboxMasmBineriesDrive, dosboxSrcDrive } from "../../consts"
+import { masmBineriesPath, executionCommandPrefix, dosboxDockerImage, dosboxMasmBineriesDrive, dosboxSrcDrive, dockerImageCommand } from "../../consts"
 
 export interface IExecutionCommandBuilder {
     folderPath: string,
@@ -16,7 +16,7 @@ export default class ExecutionCommandBuilder implements IExecutionCommandBuilder
     dosboxMasmBineriesDrive: string;
 
     constructor (folderPath) {
-        this.folderPath = folderPath;
+        this.folderPath = `${process.cwd()}/${folderPath}`;
         this.masmBineryPath = masmBineriesPath;
         this.executionCommandPrefix = executionCommandPrefix;
         this.dosboxMasmBineriesDrive = dosboxMasmBineriesDrive;
@@ -24,6 +24,6 @@ export default class ExecutionCommandBuilder implements IExecutionCommandBuilder
     }
 
     public build = () => {
-        return `${this.executionCommandPrefix} -v ${this.masmBineryPath}:${dosboxMasmBineriesDrive} -v ${this.folderPath}:${dosboxSrcDrive} ${dosboxDockerImage}`
+        return `${this.executionCommandPrefix} -v ${this.masmBineryPath}:${dosboxMasmBineriesDrive} -v ${this.folderPath}:${dosboxSrcDrive} ${dosboxDockerImage} ${dockerImageCommand}`
     }
 }

@@ -13,7 +13,7 @@ export class FileBuilder implements IFileBuilder {
 
     constructor(event: IEvent, folderpath: string) {
         this.event = event
-        this.folderPath = folderpath;
+        this.folderPath = `${process.cwd()}/${folderpath}/${asmFileName}`;
     }
 
     public build(){

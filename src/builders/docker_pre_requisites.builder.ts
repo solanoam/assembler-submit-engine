@@ -18,7 +18,7 @@ export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
 
     constructor(event: IEvent) {
         this.event = event;
-        this.folderName = this.event.id;
+        this.folderName = String(this.event.eventTimestamp);
     }
 
     public build = (): IDockerPreRequisites => {
@@ -26,6 +26,11 @@ export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
         this.handleFileBuilder();
         this.handleScriptFilesBuilder();
         this.handleExecutionCommandBuilder();
+        console.log(`
+        prerequesits builder is done:
+        folder name - ${this.folderName}
+        execution command - ${this.executionCommand}
+        `)
         return { 
             folderName: this.folderName, 
             executionCommand: this.executionCommand
