@@ -12,7 +12,7 @@ export class FolderBuilder implements IFolderBuilder{
     }
 
 
-    public build(){
+    public async build(){
         fs.mkdirSync(this.folderName)
         
     }

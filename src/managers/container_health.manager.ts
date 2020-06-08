@@ -9,8 +9,8 @@ export interface IContainerHealthManager {
     folderPath:         string,
     resultsFilePath:    string,
     compiledFilePath:   string,
-    initDocker(error, stdout: string, stderr:string): void,
-    getResults(): IResults
+    initDockerConsole(error, stdout: string, stderr:string): void,
+    getResults(): Promise<IResults>
 }
 
 export default class ContainerHealthManager implements IContainerHealthManager{
@@ -22,13 +22,14 @@ export default class ContainerHealthManager implements IContainerHealthManager{
     compiledFilePath: string;
     results: IResults
 
-    constructor (folderPath) {
+    constructor (folderPath: string) {
+        this.dockerContainerId= folderPath
         this.folderPath = folderPath
         this.resultsFilePath = `${this.folderPath}/${resultsFileName}`
         this.compiledFilePath = `${this.folderPath}/${compiledFileName}`
     }
 
-    public initDocker = (error, stdout: string, stderr: string): void => {
+    public initDockerConsole = (error, stdout: string, stderr: string): void => {
         if (error) {
             console.log(`error: ${error.message}`);
             return;
@@ -37,14 +38,12 @@ export default class ContainerHealthManager implements IContainerHealthManager{
             console.log(`stderr: ${stderr}`);
             return;
         }
-        this.setDockerContainerId(stdout)
-        this.manageContainer()
+        console.log(`docker container is ${stdout}`)
     }
 
-    public getResults = ():IResults => this.resultsBuilder.build()
-
-    private setDockerContainerId = (dockerContainerId: string): void => {
-        this.dockerContainerId = dockerContainerId
+    public getResults = async ():Promise<IResults> => {
+        this.manageContainer()
+        return this.resultsBuilder.build()
     }
 
     private killDocker = (): void => {
@@ -67,7 +66,7 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         let elapsedTime: number = 0;
         while (elapsedTime <= MAX_CONTAINER_TIMEOUT) {
             setTimeout(()=> {
-                if (this.finishedRunning){
+                if (this.finishedRunning()){
                     return this.handleSuccess()
                 }
             }, CONTAINER_POLLING_INTERVAL)

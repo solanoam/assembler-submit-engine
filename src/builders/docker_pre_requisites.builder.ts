@@ -21,10 +21,9 @@ export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
         this.folderName = String(this.event.eventTimestamp);
     }
 
-    public build = (): IDockerPreRequisites => {
-        this.handleFolderBuilder();
-        this.handleFileBuilder();
-        this.handleScriptFilesBuilder();
+    public build = async (): Promise<IDockerPreRequisites> => {
+        await this.handleFolderBuilder();
+        await Promise.all([this.handleScriptFilesBuilder(), this.handleFileBuilder()])
         this.handleExecutionCommandBuilder();
         console.log(`
         prerequesits builder is done:
@@ -37,17 +36,17 @@ export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
         }
     }
 
-    private handleFolderBuilder() {
-        new FolderBuilder(this.folderName).build();
+    private async handleFolderBuilder() {
+        await new FolderBuilder(this.folderName).build();
     }
 
-    private handleFileBuilder() {
-        new FileBuilder(this.event, this.folderName).build();
+    private async handleFileBuilder() {
+        await new FileBuilder(this.event, this.folderName).build();
     }
 
-    private handleScriptFilesBuilder(){
+    private async handleScriptFilesBuilder(){
         const ScriptFilesBuilderParams: IScriptFileBuilderParams = { folderName: this.folderName, filePaths: scriptFilePaths};
-        new ScriptFilesBuilder(ScriptFilesBuilderParams).build()
+        await new ScriptFilesBuilder(ScriptFilesBuilderParams).build()
     }
 
     //TODO folder path may not be equle to folderName 

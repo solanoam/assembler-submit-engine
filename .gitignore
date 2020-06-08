@@ -62,3 +62,6 @@ typings/
 *.xml
 build/
 .DS_Store
+
+#docker folders
+*159*
