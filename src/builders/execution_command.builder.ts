@@ -9,6 +9,7 @@ export interface IExecutionCommandBuilder {
 }
 
 export default class ExecutionCommandBuilder implements IExecutionCommandBuilder {
+    id: string
     folderPath: string;
     masmBineryPath: string;
     executionCommandPrefix: string;
@@ -16,6 +17,7 @@ export default class ExecutionCommandBuilder implements IExecutionCommandBuilder
     dosboxMasmBineriesDrive: string;
 
     constructor (folderPath) {
+        this.id = folderPath
         this.folderPath = `${process.cwd()}/${folderPath}`;
         this.masmBineryPath = masmBineriesPath;
         this.executionCommandPrefix = executionCommandPrefix;
@@ -24,6 +26,6 @@ export default class ExecutionCommandBuilder implements IExecutionCommandBuilder
     }
 
     public build = () => {
-        return `${this.executionCommandPrefix} -v ${this.masmBineryPath}:${dosboxMasmBineriesDrive} -v ${this.folderPath}:${dosboxSrcDrive} ${dosboxDockerImage} ${dockerImageCommand}`
+        return `${this.executionCommandPrefix} --name ${this.id} -v ${this.masmBineryPath}:${dosboxMasmBineriesDrive} -v ${this.folderPath}:${dosboxSrcDrive} ${dosboxDockerImage} ${dockerImageCommand}`
     }
 }

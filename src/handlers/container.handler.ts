@@ -17,19 +17,24 @@ export class ContainerHandler implements IContainerHandler {
     constructor (event: IEvent) {
         this.event = event;
         this.dockerPreRequisitesBuilder = new DockerPreRequisitesBuilder(this.event);
-        const dockerPreRequisites = this.dockerPreRequisitesBuilder.build();
+    }
+    
+    public getResults = async (): Promise<IEventEnriched> => {
+        await this.handleDockerPreRequisitesBuilder();
+        await this.runContainer();
+        return {...this.event, output: this.results}
+    };
+
+    private handleDockerPreRequisitesBuilder = async (): Promise<void> => {
+        const dockerPreRequisites = await this.dockerPreRequisitesBuilder.build();
         this.folderPath = dockerPreRequisites.folderName;
         this.executionCommand = dockerPreRequisites.executionCommand;
         this.containerHealthManager = new ContainerHealthManager(this.folderPath);
     }
 
-    public getResults = (): IEventEnriched => {
-        this.runContainer();
-        return {...this.event, output: this.results}
-    };
-
-    private runContainer = (): void => {
-        exec(this.executionCommand, this.containerHealthManager.initDocker);
-        this.results = this.containerHealthManager.getResults()
+    private runContainer = async (): Promise<void> => {
+        //TODO - fix async call
+        await exec(this.executionCommand, this.containerHealthManager.initDockerConsole);
+        this.results = await this.containerHealthManager.getResults()
     };
 }

@@ -20,11 +20,28 @@ export class ScriptFilesBuilder implements IScriptFileBuilder {
         this.folderName = folderName;
     }
 
-    public build(){
+    public async build(){
+        const fileCreations: Promise<string>[] = []
+
+        const createNewFileOnPathPromise = (...args: any): Promise<string> => {
+            const path = args[0]
+            return new Promise((resolve, reject)=>{
+                const fileName = this.getFileName(path)
+                fs.createReadStream(path).pipe(fs.createWriteStream(`${this.folderName}/${fileName}`))
+                    .on('finish', () => {
+                        resolve(fileName);
+                    })
+                    .on('error', (err) => {
+                        reject(`an error ocurred ${err}`);
+                    })
+            })
+        }
         this.filePaths.forEach((path: string) => {
-            const fileName = this.getFileName(path);
-            fs.createReadStream(path).pipe(fs.createWriteStream(`${this.folderName}/${fileName}`));
+            fileCreations.push(createNewFileOnPathPromise(path));
         })
+        await Promise.all(fileCreations)
+
+
     }
 
     private getFileName(path: string) {

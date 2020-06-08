@@ -5,5 +5,5 @@ export interface IDockerPreRequisitesBuilder {
     event: IEvent
     folderName: string
     executionCommand: string
-    build(): IDockerPreRequisites
+    build(): Promise<IDockerPreRequisites>
 }

@@ -16,10 +16,10 @@ export class FileBuilder implements IFileBuilder {
         this.folderPath = `${process.cwd()}/${folderpath}/${asmFileName}`;
     }
 
-    public build(){
+    public async build(){
         const { file } = this.event
-        file.download({
+        await file.download({
             destination: this.folderPath
-        }, (err)=>{console.error(err)})
+        })
     }
 }
