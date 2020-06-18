@@ -5,6 +5,7 @@ import {DockerPreRequisitesBuilder} from "../builders/docker_pre_requisites.buil
 import { exec } from "child_process";
 import ContainerHealthManager, { IContainerHealthManager } from '../managers/container_health.manager';
 import { IResults } from './results.handler';
+import { stdout } from "process";
 
 export class ContainerHandler implements IContainerHandler {
     event: IEvent;
@@ -32,9 +33,28 @@ export class ContainerHandler implements IContainerHandler {
         this.containerHealthManager = new ContainerHealthManager(this.folderPath);
     }
 
+    private execContainerRunCommand = (...args): Promise<string> => {
+        return new Promise((resolve, reject) => {
+             exec(this.executionCommand, (error, stdout, stderr) =>{
+                if (error) {
+                    console.log(`error: ${error.message}`);
+                    reject(error)
+                }
+                if (stderr) {
+                    console.log(`stderr: ${stderr}`);
+                    reject(error)
+                }
+                console.log(`docker container is ${stdout}`)
+                resolve(stdout)
+            })
+        })
+    }
+    
     private runContainer = async (): Promise<void> => {
-        //TODO - fix async call
-        await exec(this.executionCommand, this.containerHealthManager.initDockerConsole);
+        let time = Date.now()
+        console.log(`---${time}---`)
+        await this.execContainerRunCommand()
         this.results = await this.containerHealthManager.getResults()
+        console.log(`---${Date.now() - time}---`)
     };
 }

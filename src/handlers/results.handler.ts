@@ -25,9 +25,17 @@ export default class ResultsBuilder implements IResultsBuilder {
     resultsStatus: ResultsStatus;
 
     constructor (resultsOutPath, resultsStatus) {
+        console.log(resultsOutPath)
         this.resultsOutPath = `${process.cwd()}/${resultsOutPath}`
         this.resultsStatus = resultsStatus
-        this.resultsOut = readFileSync(this.resultsOutPath, DEFAULT_ENCODING);
+        try {
+            this.resultsOut = readFileSync(this.resultsOutPath, DEFAULT_ENCODING);
+        }
+        catch (e) {
+            this.resultsOut = `not compiled`
+            this.resultsStatus = ResultsStatus.notCompiled
+        }
+        
     }
 
     public build = (): IResults => {
