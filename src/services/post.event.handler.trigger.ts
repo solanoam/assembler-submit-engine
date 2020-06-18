@@ -1,4 +1,4 @@
-import { POST_EVENT_HANDLER_ENDPOINT } from "../../consts"
+import { POST_EVENT_HANDLER_ENDPOINT, POST_EVENT_HANDLER_ENDPOINT_TOKEN } from "../../consts"
 import { IEventEnriched } from "../interfaces/event.interface"
 import { now } from "moment"
 import { time } from "console"
@@ -11,7 +11,7 @@ export interface IPostEventHandlerTrigger {
 export class postEventHandlerTrigger  {
   
     url: string =  POST_EVENT_HANDLER_ENDPOINT
-    token: string
+    token: string = POST_EVENT_HANDLER_ENDPOINT_TOKEN
   
     private buildRequestPayload = (event: IEventEnriched) => {
       const {userID, taskID, testcaseID, status, id, output} = event
@@ -22,7 +22,7 @@ export class postEventHandlerTrigger  {
           userID,
           taskID,
           testcaseID,
-          statusCode: status,
+          statusCode: 200,
           output
         }
       }
@@ -30,8 +30,12 @@ export class postEventHandlerTrigger  {
   
     trigger = (event: IEventEnriched) => {
       const requestPayload = this.buildRequestPayload(event)
-      get(this.url, requestPayload).then(()=> {
-        console.log(`get request was sent to ${this.url} with payload: ${JSON.stringify(requestPayload)}.`)
-      })
+      get(this.url, requestPayload)
+        .then((res)=> {
+          console.log(`get request was sent to ${this.url} with payload: ${JSON.stringify(requestPayload)}. status: ${res.status}`)
+        })
+        .catch((e)=> {
+          console.log(`get request could not be sent to ${this.url} - ${e}`)
+        })
     }
   }

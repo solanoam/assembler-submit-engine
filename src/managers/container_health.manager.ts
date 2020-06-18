@@ -2,6 +2,7 @@ import { exec } from 'child_process';
 import ResultsBuilder, { IResultsBuilder, IResults, ResultsStatus } from '../handlers/results.handler';
 import { existsSync } from 'fs';
 import { resultsFileName, compiledFileName, CONTAINER_POLLING_INTERVAL, MAX_CONTAINER_TIMEOUT } from '../../consts';
+import { resolve } from 'url';
 
 export interface IContainerHealthManager { 
     dockerContainerId:  string,
@@ -9,7 +10,6 @@ export interface IContainerHealthManager {
     folderPath:         string,
     resultsFilePath:    string,
     compiledFilePath:   string,
-    initDockerConsole(error, stdout: string, stderr:string): void,
     getResults(): Promise<IResults>
 }
 
@@ -29,20 +29,8 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         this.compiledFilePath = `${this.folderPath}/${compiledFileName}`
     }
 
-    public initDockerConsole = (error, stdout: string, stderr: string): void => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            return;
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            return;
-        }
-        console.log(`docker container is ${stdout}`)
-    }
-
     public getResults = async ():Promise<IResults> => {
-        this.manageContainer()
+        await this.manageContainer()
         return this.resultsBuilder.build()
     }
 
@@ -62,22 +50,36 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         console.log(stdout)
     }
 
-    private manageContainer = (): void => {
+    private manageContainer = (): Promise<void> => {
         let elapsedTime: number = 0;
-        while (elapsedTime <= MAX_CONTAINER_TIMEOUT) {
-            setTimeout(()=> {
-                if (this.finishedRunning()){
-                    return this.handleSuccess()
-                }
-            }, CONTAINER_POLLING_INTERVAL)
-            elapsedTime += CONTAINER_POLLING_INTERVAL
-        }
-        this.handleFailure()
+        return new Promise((resolve, reject)=> {
+            try {
+                const intervalID: NodeJS.Timer = setInterval(()=> {
+                    if (this.finishedRunning()){
+                        clearInterval(intervalID)
+                        console.log(`finished running => handling success`)
+                        this.handleSuccess()
+                        resolve()
+                    }
+                    elapsedTime += CONTAINER_POLLING_INTERVAL 
+                    if (elapsedTime >= MAX_CONTAINER_TIMEOUT) {
+                        clearInterval(intervalID)
+                        console.log(`failed, killing docker ${this.dockerContainerId}`)
+                        this.handleFailure()
+                        resolve()
+                    }
+                }, CONTAINER_POLLING_INTERVAL)
+            }
+            catch (e){
+                reject(e)
+            }
+        })
+        
     }
 
     private handleFailure = () => {
         this.killDocker()
-        this.resultsBuilder = new ResultsBuilder("", this.finishedCompiling ? ResultsStatus.compiled : ResultsStatus.notCompiled)
+        this.resultsBuilder = new ResultsBuilder(this.compiledFilePath, this.finishedCompiling ? ResultsStatus.compiled : ResultsStatus.notCompiled)
     }
 
     handleSuccess = () => {
@@ -85,6 +87,11 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         this.resultsBuilder = new ResultsBuilder(this.resultsFilePath, ResultsStatus.success)
     }
 
-    private finishedRunning = (): boolean => existsSync(this.resultsFilePath)
-    private finishedCompiling = (): boolean => existsSync(this.compiledFilePath)
+    private finishedRunning = (): boolean => {
+        return existsSync(this.resultsFilePath)
+    }
+    private finishedCompiling = (): boolean => {
+        return existsSync(this.compiledFilePath)
+    }
+    
 }
