@@ -17,7 +17,6 @@ export class EventController implements IEventController {
     public async getEvent(eventMeta: IEventMeta): Promise<IEvent> {
         const {userID, taskID, testcaseID} = eventMeta
         const path = `${this.userSubmissionFolder}/${userID}/${taskID}`
-        console.log(`path is ${path}`)
         const getFilesPromise = (...args): Promise<any[]> => {
             return new Promise((resolve, reject)=>{
                 this.eventsStorage.getFiles(...args, (err, files)=>{
@@ -29,7 +28,6 @@ export class EventController implements IEventController {
         const files: any[] = await getFilesPromise({
             directory: path
         })
-        console.log(`len: ${files.length}`)
         const filterdFiles = files.filter(f=>f.name.includes(`${path}/${testcaseID}`))
         filterdFiles.forEach(f=>console.log(f.name))
         const event: IEvent = {...eventMeta, eventTimestamp: now(), file: filterdFiles[0] }

@@ -1,8 +1,7 @@
 import { exec } from 'child_process';
 import ResultsBuilder, { IResultsBuilder, IResults, ResultsStatus } from '../handlers/results.handler';
 import { existsSync } from 'fs';
-import { resultsFileName, compiledFileName, CONTAINER_POLLING_INTERVAL, MAX_CONTAINER_TIMEOUT } from '../../consts';
-import { resolve } from 'url';
+import { resultsFileName, compiledFileName, CONTAINER_POLLING_INTERVAL, MAX_CONTAINER_TIMEOUT, finishedRunningFile, compilerDumpFileName, linkerDumpFileName, linkObjName } from '../../consts';
 
 export interface IContainerHealthManager { 
     dockerContainerId:  string,
@@ -10,9 +9,21 @@ export interface IContainerHealthManager {
     folderPath:         string,
     resultsFilePath:    string,
     compiledFilePath:   string,
+    finishedRunningFilePath:   string,
+    compilerDumpFileNamePath: string;
+    linkerDumpFileNamePath: string;
+    linkObjNamePath: string
     getResults(): Promise<IResults>
 }
 
+export interface filePaths {
+    resultsFilePath: string
+    finishedRunningFilePath:   string,
+    compiledFilePath: string
+    compilerDumpFileNamePath: string;
+    linkerDumpFileNamePath: string;
+    linkObjNamePath: string
+}
 export default class ContainerHealthManager implements IContainerHealthManager{
     dockerContainerId: string
     resultsBuilder: IResultsBuilder;
@@ -21,17 +32,43 @@ export default class ContainerHealthManager implements IContainerHealthManager{
     resultsFilePath: string;
     compiledFilePath: string;
     results: IResults
+    finishedRunningFilePath: string;
+    compilerDumpFileNamePath: string;
+    linkerDumpFileNamePath: string;
+    linkObjNamePath: string
+    filePaths: filePaths
 
     constructor (folderPath: string) {
         this.dockerContainerId= folderPath
         this.folderPath = folderPath
-        this.resultsFilePath = `${this.folderPath}/${resultsFileName}`
-        this.compiledFilePath = `${this.folderPath}/${compiledFileName}`
+        this.buildFilePaths()
     }
 
     public getResults = async ():Promise<IResults> => {
         await this.manageContainer()
         return this.resultsBuilder.build()
+    }
+
+    private buildFilePaths = (): void => {
+        this.resultsFilePath = this.buildFilePath(resultsFileName)
+        this.finishedRunningFilePath = this.buildFilePath(finishedRunningFile)
+        this.compiledFilePath = this.buildFilePath(compiledFileName)
+        this.compilerDumpFileNamePath = this.buildFilePath(compilerDumpFileName)
+        this.linkerDumpFileNamePath = this.buildFilePath(linkerDumpFileName)
+        this.linkObjNamePath = this.buildFilePath(linkObjName)
+
+        this.filePaths = {
+            resultsFilePath: this.resultsFilePath,
+            finishedRunningFilePath: this.finishedRunningFilePath,
+            compiledFilePath: this.compiledFilePath,
+            compilerDumpFileNamePath: this.compilerDumpFileNamePath,
+            linkerDumpFileNamePath: this.linkerDumpFileNamePath,
+            linkObjNamePath: this.linkObjNamePath
+        }
+    }
+
+    private buildFilePath = (fileName: string) : string => {
+        return `${this.folderPath}/${fileName}`
     }
 
     private killDocker = (): void => {
@@ -47,7 +84,7 @@ export default class ContainerHealthManager implements IContainerHealthManager{
             console.log(`stderr: ${stderr}`);
             return;
         }
-        console.log(stdout)
+        console.log(`killing docker container - ${stdout}`)
     }
 
     private manageContainer = (): Promise<void> => {
@@ -57,7 +94,7 @@ export default class ContainerHealthManager implements IContainerHealthManager{
                 const intervalID: NodeJS.Timer = setInterval(()=> {
                     if (this.finishedRunning()){
                         clearInterval(intervalID)
-                        console.log(`finished running => handling success`)
+                        console.log(`finished running, docker ${this.dockerContainerId}`)
                         this.handleSuccess()
                         resolve()
                     }
@@ -79,19 +116,16 @@ export default class ContainerHealthManager implements IContainerHealthManager{
 
     private handleFailure = () => {
         this.killDocker()
-        this.resultsBuilder = new ResultsBuilder(this.compiledFilePath, this.finishedCompiling ? ResultsStatus.compiled : ResultsStatus.notCompiled)
+        this.resultsBuilder = new ResultsBuilder(this.filePaths, true)
     }
 
     handleSuccess = () => {
         this.killDocker()
-        this.resultsBuilder = new ResultsBuilder(this.resultsFilePath, ResultsStatus.success)
+        this.resultsBuilder = new ResultsBuilder(this.filePaths, false)
     }
 
     private finishedRunning = (): boolean => {
-        return existsSync(this.resultsFilePath)
-    }
-    private finishedCompiling = (): boolean => {
-        return existsSync(this.compiledFilePath)
+        return existsSync(this.finishedRunningFilePath)
     }
     
 }
