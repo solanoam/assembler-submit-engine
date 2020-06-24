@@ -26,9 +26,9 @@ export class DockerPreRequisitesBuilder implements IDockerPreRequisitesBuilder {
         await Promise.all([this.handleScriptFilesBuilder(), this.handleFileBuilder()])
         this.handleExecutionCommandBuilder();
         console.log(`
-        prerequesits builder is done:
-        folder name - ${this.folderName}
-        execution command - ${this.executionCommand}
+prerequesits builder is done:
+folder name - ${this.folderName}
+execution command - ${this.executionCommand}
         `)
         return { 
             folderName: this.folderName, 

@@ -16,7 +16,7 @@ export class EventsHandler implements IEventsHandler {
     
     async handleEvent(eventMeta: IEventMeta) {
         const event: IEvent = await this.eventController.getEvent(eventMeta)
-        const eventAfterContainerRun: IEventEnriched = await new ContainerHandler(event).getResults();
+        const eventAfterContainerRun: IEventEnriched = await new ContainerHandler(event).getEnrichedEvent();
         this.postEventHandlerTrigger.trigger(eventAfterContainerRun)
     }
 

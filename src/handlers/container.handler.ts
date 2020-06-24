@@ -20,10 +20,10 @@ export class ContainerHandler implements IContainerHandler {
         this.dockerPreRequisitesBuilder = new DockerPreRequisitesBuilder(this.event);
     }
     
-    public getResults = async (): Promise<IEventEnriched> => {
+    public getEnrichedEvent = async (): Promise<IEventEnriched> => {
         await this.handleDockerPreRequisitesBuilder();
         await this.runContainer();
-        return {...this.event, output: this.results}
+        return {...this.event, ...this.results}
     };
 
     private handleDockerPreRequisitesBuilder = async (): Promise<void> => {
@@ -44,7 +44,7 @@ export class ContainerHandler implements IContainerHandler {
                     console.log(`stderr: ${stderr}`);
                     reject(error)
                 }
-                console.log(`docker container is ${stdout}`)
+                console.log(`running docker container - ${stdout}`)
                 resolve(stdout)
             })
         })
@@ -52,9 +52,8 @@ export class ContainerHandler implements IContainerHandler {
     
     private runContainer = async (): Promise<void> => {
         let time = Date.now()
-        console.log(`---${time}---`)
         await this.execContainerRunCommand()
         this.results = await this.containerHealthManager.getResults()
-        console.log(`---${Date.now() - time}---`)
+        console.log(`container run elapsed time - ${Date.now() - time}`)
     };
 }

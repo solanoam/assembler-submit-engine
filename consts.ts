@@ -7,6 +7,10 @@ export const CONTAINER_POLLING_INTERVAL = 200
 
 export const resultsFileName = "TD.txt"
 export const compiledFileName = "UC.exe"
+export const compilerDumpFileName = "CD.TXT"
+export const linkerDumpFileName = "LD.TXT"
+export const linkObjName = "UCO.OBJ"
+export const finishedRunningFile = 'RF.txt'
 
 export const asmFileName = 'UC.asm';
 export const scriptFilePaths = [

@@ -22,7 +22,7 @@ export class postEventHandlerTrigger  {
           userID,
           taskID,
           testcaseID,
-          statusCode: 200,
+          statusCode: status,
           output
         }
       }

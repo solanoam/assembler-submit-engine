@@ -9,9 +9,10 @@ admin.initializeApp({
   credential: admin.credential.cert(SERVICE_ACCOUNT_CONFIG),
   databaseURL: SERVICE_ACCOUNT_URL
 });
-
+console.log(`initialized FireBase Client!`)
 const storage = admin.storage().bucket(STORAGE_BUCKET)
-
+console.log(`initialized FireBase Bucket!`)
+console.log(`listening for events...`)
 admin.database().ref("usersSubmissions").on("child_added", dataSnapshot => {
   const eventMeta: IEventMeta = {...dataSnapshot.val(), id: dataSnapshot.key}
   console.log(`new event ${eventMeta.id}: ${eventMeta.taskID}, ${eventMeta.userID}, ${eventMeta.testcaseID}.`)
