@@ -73,6 +73,7 @@
 						<section class="tsd-index-section tsd-is-not-exported">
 							<h3>Variables</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="_index_.html#rtdb" class="tsd-kind-icon">RTDB</a></li>
 								<li class="tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported"><a href="_index_.html#storage" class="tsd-kind-icon">storage</a></li>
 							</ul>
 						</section>
@@ -82,14 +83,34 @@
 			<section class="tsd-panel-group tsd-member-group tsd-is-not-exported">
 				<h2>Variables</h2>
 				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
-					<a name="storage" class="tsd-anchor"></a>
-					<h3><span class="tsd-flag ts-flagConst">Const</span> storage</h3>
-					<div class="tsd-signature tsd-kind-icon">storage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Bucket</span><span class="tsd-signature-symbol"> = admin.storage().bucket(STORAGE_BUCKET)</span></div>
+					<a name="rtdb" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> RTDB</h3>
+					<div class="tsd-signature tsd-kind-icon">RTDB<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Reference</span><span class="tsd-signature-symbol"> = admin.database().ref(&quot;usersSubmissions&quot;)</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/index.ts#L13">index.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/index.ts#L24">index.ts:24</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Initializing the firebase RTDB connection. later will be attached to a callback, using google&#39;s sdk (using .on method)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+					<a name="storage" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagConst">Const</span> storage</h3>
+					<div class="tsd-signature tsd-kind-icon">storage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Bucket</span><span class="tsd-signature-symbol"> = admin.storage().bucket(STORAGE_BUCKET) as unknown as Bucket</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/index.ts#L17">index.ts:17</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Initializing the firebase file storage connection.</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -106,9 +127,6 @@
 						<a href="_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_initfirebase_.html">&quot;init<wbr>Firebase&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="_src_builders_docker_pre_requisites_builder_.html">&quot;src/builders/docker_<wbr>pre_<wbr>requisites.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -119,6 +137,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_builders_folder_builder_.html">&quot;src/builders/folder.builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_builders_results_builder_.html">&quot;src/builders/results.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_builders_script_files_builder_.html">&quot;src/builders/script_<wbr>files.builder&quot;</a>
@@ -133,10 +154,10 @@
 						<a href="_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_src_handlers_results_handler_.html">&quot;src/handlers/results.handler&quot;</a>
+						<a href="_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
+						<a href="_src_interfaces_container_health_manager_interface_.html">&quot;src/interfaces/container_<wbr>health.manager.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_<wbr>pre_<wbr>requisites.builder.interface&quot;</a>
@@ -148,21 +169,39 @@
 						<a href="_src_interfaces_event_interface_.html">&quot;src/interfaces/event.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_src_interfaces_event_config_interface_.html">&quot;src/interfaces/event_<wbr>config.interface&quot;</a>
+						<a href="_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
+						<a href="_src_interfaces_execution_command_builder_interface_.html">&quot;src/interfaces/execution_<wbr>command.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_interfaces_file_builder_interface_.html">&quot;src/interfaces/file.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_interfaces_folder_builder_interface_.html">&quot;src/interfaces/folder.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_interfaces_post_event_handler_trigger_service_interface_.html">&quot;src/interfaces/post_<wbr>event_<wbr>handler_<wbr>trigger.service.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_interfaces_results_handler_interface_.html">&quot;src/interfaces/results.handler.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_<wbr>files.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="_src_managers_container_health_manager_.html">&quot;src/managers/container_<wbr>health.manager&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+						<a href="_src_services_post_event_handler_trigger_service_.html">&quot;src/services/post_<wbr>event_<wbr>handler_<wbr>trigger.service&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
+					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
+						<a href="_index_.html#rtdb" class="tsd-kind-icon">RTDB</a>
+					</li>
 					<li class=" tsd-kind-variable tsd-parent-kind-module tsd-is-not-exported">
 						<a href="_index_.html#storage" class="tsd-kind-icon">storage</a>
 					</li>

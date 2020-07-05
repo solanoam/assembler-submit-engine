@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IPostEventHandlerTrigger | engine</title>
+	<title>IScriptFileBuilderParams | engine</title>
 	<meta name="description" content="Documentation for engine">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+					<a href="../modules/_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_files.builder.interface&quot;</a>
 				</li>
 				<li>
-					<a href="_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html">IPostEventHandlerTrigger</a>
+					<a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilderparams.html">IScriptFileBuilderParams</a>
 				</li>
 			</ul>
-			<h1>Interface IPostEventHandlerTrigger</h1>
+			<h1>Interface IScriptFileBuilderParams</h1>
 		</div>
 	</div>
 </header>
@@ -73,7 +73,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IPostEventHandlerTrigger</span>
+						<span class="target">IScriptFileBuilderParams</span>
 					</li>
 				</ul>
 			</section>
@@ -82,38 +82,36 @@
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
 						<section class="tsd-index-section ">
-							<h3>Methods</h3>
+							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-interface"><a href="_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html#trigger" class="tsd-kind-icon">trigger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilderparams.html#filepaths" class="tsd-kind-icon">file<wbr>Paths</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilderparams.html#foldername" class="tsd-kind-icon">folder<wbr>Name</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
-				<h2>Methods</h2>
-				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-interface">
-					<a name="trigger" class="tsd-anchor"></a>
-					<h3>trigger</h3>
-					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-interface">
-						<li class="tsd-signature tsd-kind-icon">trigger<span class="tsd-signature-symbol">(</span>event<span class="tsd-signature-symbol">: </span><a href="_src_interfaces_event_interface_.ieventenriched.html" class="tsd-signature-type">IEventEnriched</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">void</span></li>
-					</ul>
-					<ul class="tsd-descriptions">
-						<li class="tsd-description">
-							<aside class="tsd-sources">
-								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/services/post.event.handler.trigger.ts#L8">src/services/post.event.handler.trigger.ts:8</a></li>
-								</ul>
-							</aside>
-							<h4 class="tsd-parameters-title">Parameters</h4>
-							<ul class="tsd-parameters">
-								<li>
-									<h5>event: <a href="_src_interfaces_event_interface_.ieventenriched.html" class="tsd-signature-type">IEventEnriched</a></h5>
-								</li>
-							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">void</span></h4>
-						</li>
-					</ul>
+				<h2>Properties</h2>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="filepaths" class="tsd-anchor"></a>
+					<h3>file<wbr>Paths</h3>
+					<div class="tsd-signature tsd-kind-icon">file<wbr>Paths<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">[]</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/interfaces/script_files.builder.interface.ts:8</li>
+						</ul>
+					</aside>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="foldername" class="tsd-anchor"></a>
+					<h3>folder<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">folder<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in src/interfaces/script_files.builder.interface.ts:7</li>
+						</ul>
+					</aside>
 				</section>
 			</section>
 		</div>
@@ -130,9 +128,6 @@
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_initfirebase_.html">&quot;init<wbr>Firebase&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_docker_pre_requisites_builder_.html">&quot;src/builders/docker_<wbr>pre_<wbr>requisites.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -143,6 +138,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_folder_builder_.html">&quot;src/builders/folder.builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_builders_results_builder_.html">&quot;src/builders/results.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_script_files_builder_.html">&quot;src/builders/script_<wbr>files.builder&quot;</a>
@@ -157,10 +155,10 @@
 						<a href="../modules/_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_handlers_results_handler_.html">&quot;src/handlers/results.handler&quot;</a>
+						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_container_health_manager_interface_.html">&quot;src/interfaces/container_<wbr>health.manager.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_<wbr>pre_<wbr>requisites.builder.interface&quot;</a>
@@ -172,31 +170,49 @@
 						<a href="../modules/_src_interfaces_event_interface_.html">&quot;src/interfaces/event.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_event_config_interface_.html">&quot;src/interfaces/event_<wbr>config.interface&quot;</a>
+						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_execution_command_builder_interface_.html">&quot;src/interfaces/execution_<wbr>command.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_file_builder_interface_.html">&quot;src/interfaces/file.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_folder_builder_interface_.html">&quot;src/interfaces/folder.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_post_event_handler_trigger_service_interface_.html">&quot;src/interfaces/post_<wbr>event_<wbr>handler_<wbr>trigger.service.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_results_handler_interface_.html">&quot;src/interfaces/results.handler.interface&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
+						<a href="../modules/_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_<wbr>files.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_managers_container_health_manager_.html">&quot;src/managers/container_<wbr>health.manager&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
-						<a href="../modules/_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_services_post_event_handler_trigger_service_.html">&quot;src/services/post_<wbr>event_<wbr>handler_<wbr>trigger.service&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_src_services_post_event_handler_trigger_.posteventhandlertrigger.html" class="tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger</a>
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilder.html" class="tsd-kind-icon">IScript<wbr>File<wbr>Builder</a>
 					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html" class="tsd-kind-icon">IPost<wbr>Event<wbr>Handler<wbr>Trigger</a>
+						<a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilderparams.html" class="tsd-kind-icon">IScript<wbr>File<wbr>Builder<wbr>Params</a>
 						<ul>
-							<li class=" tsd-kind-method tsd-parent-kind-interface">
-								<a href="_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html#trigger" class="tsd-kind-icon">trigger</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilderparams.html#filepaths" class="tsd-kind-icon">file<wbr>Paths</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="_src_interfaces_script_files_builder_interface_.iscriptfilebuilderparams.html#foldername" class="tsd-kind-icon">folder<wbr>Name</a>
 							</li>
 						</ul>
 					</li>
@@ -213,7 +229,7 @@
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>

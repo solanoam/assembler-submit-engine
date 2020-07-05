@@ -69,6 +69,20 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Handler for the docker container that will compile and run the user code in the event.
+						The handler will handle calls to the different components needed to run the container:</p>
+						<ul>
+							<li>Prerequisites</li>
+							<li>Container Health Manager</li>
+							<li>Executing Docker Run Command
+							The handler will return an enriched event to the caller</li>
+						</ul>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -108,7 +122,7 @@
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_handlers_container_handler_.containerhandler.html#execcontainerruncommand" class="tsd-kind-icon">exec<wbr>Container<wbr>Run<wbr>Command</a></li>
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_handlers_container_handler_.containerhandler.html#getenrichedevent" class="tsd-kind-icon">get<wbr>Enriched<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_handlers_container_handler_.containerhandler.html#handle" class="tsd-kind-icon">handle</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_handlers_container_handler_.containerhandler.html#handledockerprerequisitesbuilder" class="tsd-kind-icon">handle<wbr>Docker<wbr>Pre<wbr>Requisites<wbr>Builder</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_handlers_container_handler_.containerhandler.html#runcontainer" class="tsd-kind-icon">run<wbr>Container</a></li>
 							</ul>
@@ -128,9 +142,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L16">src/handlers/container.handler.ts:16</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L24">src/handlers/container.handler.ts:24</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializing the Container Handler.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -147,10 +166,10 @@
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="containerhealthmanager" class="tsd-anchor"></a>
 					<h3>container<wbr>Health<wbr>Manager</h3>
-					<div class="tsd-signature tsd-kind-icon">container<wbr>Health<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_managers_container_health_manager_.icontainerhealthmanager.html" class="tsd-signature-type">IContainerHealthManager</a></div>
+					<div class="tsd-signature tsd-kind-icon">container<wbr>Health<wbr>Manager<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_interfaces_container_health_manager_interface_.icontainerhealthmanager.html" class="tsd-signature-type">IContainerHealthManager</a></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L15">src/handlers/container.handler.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L23">src/handlers/container.handler.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -161,7 +180,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html">IContainerHandler</a>.<a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html#dockerprerequisitesbuilder">dockerPreRequisitesBuilder</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L12">src/handlers/container.handler.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L20">src/handlers/container.handler.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -172,7 +191,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html">IContainerHandler</a>.<a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html#event">event</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L11">src/handlers/container.handler.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L19">src/handlers/container.handler.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -183,7 +202,7 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html">IContainerHandler</a>.<a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html#executioncommand">executionCommand</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L13">src/handlers/container.handler.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L21">src/handlers/container.handler.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -193,18 +212,18 @@
 					<div class="tsd-signature tsd-kind-icon">folder<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L14">src/handlers/container.handler.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L22">src/handlers/container.handler.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="results" class="tsd-anchor"></a>
 					<h3>results</h3>
-					<div class="tsd-signature tsd-kind-icon">results<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_handlers_results_handler_.iresults.html" class="tsd-signature-type">IResults</a></div>
+					<div class="tsd-signature tsd-kind-icon">results<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_interfaces_results_handler_interface_.iresults.html" class="tsd-signature-type">IResults</a></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html">IContainerHandler</a>.<a href="../interfaces/_src_interfaces_container_handler_interface_.icontainerhandler.html#results">results</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L16">src/handlers/container.handler.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L24">src/handlers/container.handler.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -221,9 +240,15 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L36">src/handlers/container.handler.ts:36</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L63">src/handlers/container.handler.ts:63</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private for running the docker container in bash environment.
+									Wrapped in Promise for better usage.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -235,18 +260,23 @@
 					</ul>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="getenrichedevent" class="tsd-anchor"></a>
-					<h3>get<wbr>Enriched<wbr>Event</h3>
+					<a name="handle" class="tsd-anchor"></a>
+					<h3>handle</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<wbr>Enriched<wbr>Event<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_src_interfaces_event_interface_.ieventenriched.html" class="tsd-signature-type">IEventEnriched</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">handle<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_src_interfaces_event_interface_.ieventenriched.html" class="tsd-signature-type">IEventEnriched</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L23">src/handlers/container.handler.ts:23</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L37">src/handlers/container.handler.ts:37</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Main handler function, calls the different components to ensure docker container execution.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_src_interfaces_event_interface_.ieventenriched.html" class="tsd-signature-type">IEventEnriched</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -261,9 +291,21 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L29">src/handlers/container.handler.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L52">src/handlers/container.handler.ts:52</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private for handling calls to prerequisites building.
+									will ensure creation for:</p>
+									<ul>
+										<li>Docker Prerequisites</li>
+										<li>Folder Volume</li>
+										<li>Docker Execution Command</li>
+										<li>Container Health Manager</li>
+									</ul>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -278,9 +320,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/b73fc01/src/handlers/container.handler.ts#L53">src/handlers/container.handler.ts:53</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/container.handler.ts#L84">src/handlers/container.handler.ts:84</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private for executing the docker run command and log some logs.</p>
+								</div>
+							</div>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
@@ -300,9 +347,6 @@
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_initfirebase_.html">&quot;init<wbr>Firebase&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_docker_pre_requisites_builder_.html">&quot;src/builders/docker_<wbr>pre_<wbr>requisites.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -313,6 +357,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_folder_builder_.html">&quot;src/builders/folder.builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_builders_results_builder_.html">&quot;src/builders/results.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_script_files_builder_.html">&quot;src/builders/script_<wbr>files.builder&quot;</a>
@@ -327,10 +374,10 @@
 						<a href="../modules/_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_handlers_results_handler_.html">&quot;src/handlers/results.handler&quot;</a>
+						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_container_health_manager_interface_.html">&quot;src/interfaces/container_<wbr>health.manager.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_<wbr>pre_<wbr>requisites.builder.interface&quot;</a>
@@ -342,16 +389,31 @@
 						<a href="../modules/_src_interfaces_event_interface_.html">&quot;src/interfaces/event.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_event_config_interface_.html">&quot;src/interfaces/event_<wbr>config.interface&quot;</a>
+						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_execution_command_builder_interface_.html">&quot;src/interfaces/execution_<wbr>command.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_file_builder_interface_.html">&quot;src/interfaces/file.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_folder_builder_interface_.html">&quot;src/interfaces/folder.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_post_event_handler_trigger_service_interface_.html">&quot;src/interfaces/post_<wbr>event_<wbr>handler_<wbr>trigger.service.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_results_handler_interface_.html">&quot;src/interfaces/results.handler.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_<wbr>files.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_managers_container_health_manager_.html">&quot;src/managers/container_<wbr>health.manager&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+						<a href="../modules/_src_services_post_event_handler_trigger_service_.html">&quot;src/services/post_<wbr>event_<wbr>handler_<wbr>trigger.service&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -387,7 +449,7 @@
 								<a href="_src_handlers_container_handler_.containerhandler.html#execcontainerruncommand" class="tsd-kind-icon">exec<wbr>Container<wbr>Run<wbr>Command</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_src_handlers_container_handler_.containerhandler.html#getenrichedevent" class="tsd-kind-icon">get<wbr>Enriched<wbr>Event</a>
+								<a href="_src_handlers_container_handler_.containerhandler.html#handle" class="tsd-kind-icon">handle</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
 								<a href="_src_handlers_container_handler_.containerhandler.html#handledockerprerequisitesbuilder" class="tsd-kind-icon">handle<wbr>Docker<wbr>Pre<wbr>Requisites<wbr>Builder</a>
