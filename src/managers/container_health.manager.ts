@@ -1,22 +1,11 @@
 import { exec } from 'child_process';
-import ResultsBuilder, { IResultsBuilder, IResults, ResultsStatus } from '../handlers/results.handler';
+import { IResultsBuilder, IResults } from "../interfaces/results.handler.interface";
 import { existsSync } from 'fs';
 import { resultsFileName, compiledFileName, CONTAINER_POLLING_INTERVAL, MAX_CONTAINER_TIMEOUT, finishedRunningFile, compilerDumpFileName, linkerDumpFileName, linkObjName } from '../../consts';
+import { IContainerHealthManager } from '../interfaces/container_health.manager.interface';
+import ResultsBuilder from '../builders/results.builder';
 
-export interface IContainerHealthManager { 
-    dockerContainerId:  string,
-    resultsBuilder:     IResultsBuilder,
-    folderPath:         string,
-    resultsFilePath:    string,
-    compiledFilePath:   string,
-    finishedRunningFilePath:   string,
-    compilerDumpFileNamePath: string;
-    linkerDumpFileNamePath: string;
-    linkObjNamePath: string
-    getResults(): Promise<IResults>
-}
-
-export interface filePaths {
+export interface FilePaths {
     resultsFilePath: string
     finishedRunningFilePath:   string,
     compiledFilePath: string
@@ -24,6 +13,10 @@ export interface filePaths {
     linkerDumpFileNamePath: string;
     linkObjNamePath: string
 }
+/**
+ * Health manager for the container.
+ * decide when to shut the container down, or when it is finished based on internal logic
+ */
 export default class ContainerHealthManager implements IContainerHealthManager{
     dockerContainerId: string
     resultsBuilder: IResultsBuilder;
@@ -36,19 +29,28 @@ export default class ContainerHealthManager implements IContainerHealthManager{
     compilerDumpFileNamePath: string;
     linkerDumpFileNamePath: string;
     linkObjNamePath: string
-    filePaths: filePaths
+    filePaths: FilePaths
 
+    /**
+     * Initializing the health manager. 
+     */
     constructor (folderPath: string) {
         this.dockerContainerId= folderPath
         this.folderPath = folderPath
         this.buildFilePaths()
     }
 
+    /**
+     * main public method - initialize a results handler based on the container health. 
+     */
     public getResults = async ():Promise<IResults> => {
         await this.manageContainer()
         return this.resultsBuilder.build()
     }
 
+    /**
+     * extract all the relevant file paths to an object to be used in the results handler. 
+     */
     private buildFilePaths = (): void => {
         this.resultsFilePath = this.buildFilePath(resultsFileName)
         this.finishedRunningFilePath = this.buildFilePath(finishedRunningFile)
@@ -67,14 +69,23 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         }
     }
 
+    /**
+     * building the actual file path based on the file name and folder path. 
+     */
     private buildFilePath = (fileName: string) : string => {
         return `${this.folderPath}/${fileName}`
     }
 
+    /**
+     * private for executing kill command for the docker. 
+     */
     private killDocker = (): void => {
         exec(`docker kill ${this.dockerContainerId}`, this.logShellCommand)
     }
 
+    /**
+     * private handler for correctly logging the kill command. 
+     */
     private logShellCommand = (error, stdout, stderr) => {
         if (error) {
             console.log(`error: ${error.message}`);
@@ -87,6 +98,11 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         console.log(`killing docker container - ${stdout}`)
     }
 
+    /**
+     * health management method, orchestrate the container health by polling the it's state, 
+     * referenced by the file system status 
+     * Wrapped by Promise for better usage
+     */
     private manageContainer = (): Promise<void> => {
         let elapsedTime: number = 0;
         return new Promise((resolve, reject)=> {
@@ -114,16 +130,25 @@ export default class ContainerHealthManager implements IContainerHealthManager{
         
     }
 
+    /**
+     * Handling failure private. 
+     */
     private handleFailure = () => {
         this.killDocker()
         this.resultsBuilder = new ResultsBuilder(this.filePaths, true)
     }
 
+    /**
+     * Handling success private. 
+     */
     handleSuccess = () => {
         this.killDocker()
         this.resultsBuilder = new ResultsBuilder(this.filePaths, false)
     }
 
+    /**
+     * logic that decides when the docker has finished. 
+     */
     private finishedRunning = (): boolean => {
         return existsSync(this.finishedRunningFilePath)
     }

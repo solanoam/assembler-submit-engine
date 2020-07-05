@@ -2,12 +2,12 @@
 
 An automated emulation engine for 8086 assembler projects
 
-### Prerequisites
+## Prerequisites
 
 Docker <br/> 
 Node
 
-### Installing
+## Installing
 
 Run inside of the root directory:
 
@@ -15,10 +15,10 @@ Run inside of the root directory:
 npm install
 ```
 
-Run this bash run script to get going:
+## Get Started
 
 ```
-./run.sh
+npm start
 ```
 
 ## Built With

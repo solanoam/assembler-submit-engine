@@ -1,6 +1,6 @@
 import {IEvent} from "./event.interface";
 import {IDockerPreRequisitesBuilder} from "./docker_pre_requisites.builder.interface";
-import { IResults } from '../handlers/results.handler';
+import { IResults } from "./results.handler.interface";
 
 export interface IContainerHandler {
     event: IEvent,

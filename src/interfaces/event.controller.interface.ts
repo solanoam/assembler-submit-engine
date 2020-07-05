@@ -1,8 +1,8 @@
 import {IEvent, IEventMeta} from "./event.interface";
-import * as admin from "firebase-admin" 
+import { Bucket } from "@google-cloud/storage";
 
 export interface IEventController {
-    eventsStorage
+    eventsStorage: Bucket
     eventsBucket: string
     getEvent(event: IEventMeta): Promise<IEvent>
 }

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>IExecutionCommandBuilder | engine</title>
+	<title>IDockerPreRequisites | engine</title>
 	<meta name="description" content="Documentation for engine">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -56,13 +56,13 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="../modules/_src_builders_execution_command_builder_.html">&quot;src/builders/execution_command.builder&quot;</a>
+					<a href="../modules/_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_pre_requisites.builder.interface&quot;</a>
 				</li>
 				<li>
-					<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html">IExecutionCommandBuilder</a>
+					<a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisites.html">IDockerPreRequisites</a>
 				</li>
 			</ul>
-			<h1>Interface IExecutionCommandBuilder</h1>
+			<h1>Interface IDockerPreRequisites</h1>
 		</div>
 	</div>
 </header>
@@ -73,14 +73,8 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">IExecutionCommandBuilder</span>
+						<span class="target">IDockerPreRequisites</span>
 					</li>
-				</ul>
-			</section>
-			<section class="tsd-panel">
-				<h3>Implemented by</h3>
-				<ul class="tsd-hierarchy">
-					<li><a href="../classes/_src_builders_execution_command_builder_.executioncommandbuilder.html" class="tsd-signature-type">ExecutionCommandBuilder</a></li>
 				</ul>
 			</section>
 			<section class="tsd-panel-group tsd-index-group">
@@ -90,11 +84,8 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#dosboxmasmbineriesdrive" class="tsd-kind-icon">dosbox<wbr>Masm<wbr>Bineries<wbr>Drive</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#dosboxsrcdrive" class="tsd-kind-icon">dosbox<wbr>Src<wbr>Drive</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#executioncommandprefix" class="tsd-kind-icon">execution<wbr>Command<wbr>Prefix</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#folderpath" class="tsd-kind-icon">folder<wbr>Path</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#masmbinerypath" class="tsd-kind-icon">masm<wbr>Binery<wbr>Path</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisites.html#executioncommand" class="tsd-kind-icon">execution<wbr>Command</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisites.html#foldername" class="tsd-kind-icon">folder<wbr>Name</a></li>
 							</ul>
 						</section>
 					</div>
@@ -103,52 +94,22 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dosboxmasmbineriesdrive" class="tsd-anchor"></a>
-					<h3>dosbox<wbr>Masm<wbr>Bineries<wbr>Drive</h3>
-					<div class="tsd-signature tsd-kind-icon">dosbox<wbr>Masm<wbr>Bineries<wbr>Drive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="executioncommand" class="tsd-anchor"></a>
+					<h3>execution<wbr>Command</h3>
+					<div class="tsd-signature tsd-kind-icon">execution<wbr>Command<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/builders/execution_command.builder.ts#L8">src/builders/execution_command.builder.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/interfaces/docker_pre_requisites.builder.interface.ts#L11">src/interfaces/docker_pre_requisites.builder.interface.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="dosboxsrcdrive" class="tsd-anchor"></a>
-					<h3>dosbox<wbr>Src<wbr>Drive</h3>
-					<div class="tsd-signature tsd-kind-icon">dosbox<wbr>Src<wbr>Drive<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<a name="foldername" class="tsd-anchor"></a>
+					<h3>folder<wbr>Name</h3>
+					<div class="tsd-signature tsd-kind-icon">folder<wbr>Name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/builders/execution_command.builder.ts#L7">src/builders/execution_command.builder.ts:7</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="executioncommandprefix" class="tsd-anchor"></a>
-					<h3>execution<wbr>Command<wbr>Prefix</h3>
-					<div class="tsd-signature tsd-kind-icon">execution<wbr>Command<wbr>Prefix<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/builders/execution_command.builder.ts#L6">src/builders/execution_command.builder.ts:6</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="folderpath" class="tsd-anchor"></a>
-					<h3>folder<wbr>Path</h3>
-					<div class="tsd-signature tsd-kind-icon">folder<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/builders/execution_command.builder.ts#L4">src/builders/execution_command.builder.ts:4</a></li>
-						</ul>
-					</aside>
-				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="masmbinerypath" class="tsd-anchor"></a>
-					<h3>masm<wbr>Binery<wbr>Path</h3>
-					<div class="tsd-signature tsd-kind-icon">masm<wbr>Binery<wbr>Path<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
-					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/builders/execution_command.builder.ts#L5">src/builders/execution_command.builder.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/interfaces/docker_pre_requisites.builder.interface.ts#L12">src/interfaces/docker_pre_requisites.builder.interface.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -167,12 +128,9 @@
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_initfirebase_.html">&quot;init<wbr>Firebase&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_docker_pre_requisites_builder_.html">&quot;src/builders/docker_<wbr>pre_<wbr>requisites.builder&quot;</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_execution_command_builder_.html">&quot;src/builders/execution_<wbr>command.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -180,6 +138,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_folder_builder_.html">&quot;src/builders/folder.builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_builders_results_builder_.html">&quot;src/builders/results.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_script_files_builder_.html">&quot;src/builders/script_<wbr>files.builder&quot;</a>
@@ -194,12 +155,12 @@
 						<a href="../modules/_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_handlers_results_handler_.html">&quot;src/handlers/results.handler&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_container_health_manager_interface_.html">&quot;src/interfaces/container_<wbr>health.manager.interface&quot;</a>
+					</li>
+					<li class="current tsd-kind-module">
 						<a href="../modules/_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_<wbr>pre_<wbr>requisites.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -209,48 +170,54 @@
 						<a href="../modules/_src_interfaces_event_interface_.html">&quot;src/interfaces/event.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_event_config_interface_.html">&quot;src/interfaces/event_<wbr>config.interface&quot;</a>
+						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_execution_command_builder_interface_.html">&quot;src/interfaces/execution_<wbr>command.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_file_builder_interface_.html">&quot;src/interfaces/file.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_folder_builder_interface_.html">&quot;src/interfaces/folder.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_post_event_handler_trigger_service_interface_.html">&quot;src/interfaces/post_<wbr>event_<wbr>handler_<wbr>trigger.service.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_results_handler_interface_.html">&quot;src/interfaces/results.handler.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_<wbr>files.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_managers_container_health_manager_.html">&quot;src/managers/container_<wbr>health.manager&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+						<a href="../modules/_src_services_post_event_handler_trigger_service_.html">&quot;src/services/post_<wbr>event_<wbr>handler_<wbr>trigger.service&quot;</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-class tsd-parent-kind-module">
-						<a href="../classes/_src_builders_execution_command_builder_.executioncommandbuilder.html" class="tsd-kind-icon">Execution<wbr>Command<wbr>Builder</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface tsd-parent-kind-module">
-						<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html" class="tsd-kind-icon">IExecution<wbr>Command<wbr>Builder</a>
+						<a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisites.html" class="tsd-kind-icon">IDocker<wbr>Pre<wbr>Requisites</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#dosboxmasmbineriesdrive" class="tsd-kind-icon">dosbox<wbr>Masm<wbr>Bineries<wbr>Drive</a>
+								<a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisites.html#executioncommand" class="tsd-kind-icon">execution<wbr>Command</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#dosboxsrcdrive" class="tsd-kind-icon">dosbox<wbr>Src<wbr>Drive</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#executioncommandprefix" class="tsd-kind-icon">execution<wbr>Command<wbr>Prefix</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#folderpath" class="tsd-kind-icon">folder<wbr>Path</a>
-							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="_src_builders_execution_command_builder_.iexecutioncommandbuilder.html#masmbinerypath" class="tsd-kind-icon">masm<wbr>Binery<wbr>Path</a>
+								<a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisites.html#foldername" class="tsd-kind-icon">folder<wbr>Name</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
+					<li class=" tsd-kind-interface tsd-parent-kind-module">
+						<a href="_src_interfaces_docker_pre_requisites_builder_interface_.idockerprerequisitesbuilder.html" class="tsd-kind-icon">IDocker<wbr>Pre<wbr>Requisites<wbr>Builder</a>
+					</li>
 				</ul>
 			</nav>
 		</div>

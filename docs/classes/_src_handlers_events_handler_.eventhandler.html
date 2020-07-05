@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>EventsHandler | engine</title>
+	<title>EventHandler | engine</title>
 	<meta name="description" content="Documentation for engine">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -59,21 +59,30 @@
 					<a href="../modules/_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 				</li>
 				<li>
-					<a href="_src_handlers_events_handler_.eventshandler.html">EventsHandler</a>
+					<a href="_src_handlers_events_handler_.eventhandler.html">EventHandler</a>
 				</li>
 			</ul>
-			<h1>Class EventsHandler</h1>
+			<h1>Class EventHandler</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>Handler for the whole submissions event, will handle all the necessary actions to get submission
+							results and send them out.
+						Does not contain logic, only handles calls to other components</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">EventsHandler</span>
+						<span class="target">EventHandler</span>
 					</li>
 				</ul>
 			</section>
@@ -90,20 +99,20 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventshandler.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventhandler.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventshandler.html#eventcontroller" class="tsd-kind-icon">event<wbr>Controller</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventshandler.html#posteventhandlertrigger" class="tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventhandler.html#eventcontroller" class="tsd-kind-icon">event<wbr>Controller</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventhandler.html#posteventhandlertrigger" class="tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventshandler.html#handleevent" class="tsd-kind-icon">handle<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_handlers_events_handler_.eventhandler.html#handle" class="tsd-kind-icon">handle</a></li>
 							</ul>
 						</section>
 					</div>
@@ -115,25 +124,30 @@
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
 					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Events<wbr>Handler<span class="tsd-signature-symbol">(</span>eventController<span class="tsd-signature-symbol">: </span><a href="_src_controller_event_controller_.eventcontroller.html" class="tsd-signature-type">EventController</a>, postEventHandlerTrigger<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html" class="tsd-signature-type">IPostEventHandlerTrigger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_handlers_events_handler_.eventshandler.html" class="tsd-signature-type">EventsHandler</a></li>
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Event<wbr>Handler<span class="tsd-signature-symbol">(</span>eventController<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html" class="tsd-signature-type">IEventController</a>, postEventHandlerTrigger<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_interfaces_post_event_handler_trigger_service_interface_.iposteventhandlertrigger.html" class="tsd-signature-type">IPostEventHandlerTrigger</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="_src_handlers_events_handler_.eventhandler.html" class="tsd-signature-type">EventHandler</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/handlers/events.handler.ts#L10">src/handlers/events.handler.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/events.handler.ts#L15">src/handlers/events.handler.ts:15</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializing the event handler.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5>eventController: <a href="_src_controller_event_controller_.eventcontroller.html" class="tsd-signature-type">EventController</a></h5>
+									<h5>eventController: <a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html" class="tsd-signature-type">IEventController</a></h5>
 								</li>
 								<li>
-									<h5>postEventHandlerTrigger: <a href="../interfaces/_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html" class="tsd-signature-type">IPostEventHandlerTrigger</a></h5>
+									<h5>postEventHandlerTrigger: <a href="../interfaces/_src_interfaces_post_event_handler_trigger_service_interface_.iposteventhandlertrigger.html" class="tsd-signature-type">IPostEventHandlerTrigger</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="_src_handlers_events_handler_.eventshandler.html" class="tsd-signature-type">EventsHandler</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="_src_handlers_events_handler_.eventhandler.html" class="tsd-signature-type">EventHandler</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -145,18 +159,20 @@
 					<h3>event<wbr>Controller</h3>
 					<div class="tsd-signature tsd-kind-icon">event<wbr>Controller<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html" class="tsd-signature-type">IEventController</a></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html">IEventsHandler</a>.<a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html#eventcontroller">eventController</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/handlers/events.handler.ts#L9">src/handlers/events.handler.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/events.handler.ts#L14">src/handlers/events.handler.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="posteventhandlertrigger" class="tsd-anchor"></a>
 					<h3>post<wbr>Event<wbr>Handler<wbr>Trigger</h3>
-					<div class="tsd-signature tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_services_post_event_handler_trigger_.iposteventhandlertrigger.html" class="tsd-signature-type">IPostEventHandlerTrigger</a></div>
+					<div class="tsd-signature tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger<span class="tsd-signature-symbol">:</span> <a href="../interfaces/_src_interfaces_post_event_handler_trigger_service_interface_.iposteventhandlertrigger.html" class="tsd-signature-type">IPostEventHandlerTrigger</a></div>
 					<aside class="tsd-sources">
+						<p>Implementation of <a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html">IEventsHandler</a>.<a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html#posteventhandlertrigger">postEventHandlerTrigger</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/handlers/events.handler.ts#L10">src/handlers/events.handler.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/events.handler.ts#L15">src/handlers/events.handler.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -164,19 +180,25 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
-					<a name="handleevent" class="tsd-anchor"></a>
-					<h3>handle<wbr>Event</h3>
+					<a name="handle" class="tsd-anchor"></a>
+					<h3>handle</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">handle<wbr>Event<span class="tsd-signature-symbol">(</span>eventMeta<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_interfaces_event_interface_.ieventmeta.html" class="tsd-signature-type">IEventMeta</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">handle<span class="tsd-signature-symbol">(</span>eventMeta<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_interfaces_event_interface_.ieventmeta.html" class="tsd-signature-type">IEventMeta</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">void</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Implementation of <a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html">IEventsHandler</a>.<a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html#handleevent">handleEvent</a></p>
+								<p>Implementation of <a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html">IEventsHandler</a>.<a href="../interfaces/_src_interfaces_events_handler_interface_.ieventshandler.html#handle">handle</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/handlers/events.handler.ts#L17">src/handlers/events.handler.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/handlers/events.handler.ts#L30">src/handlers/events.handler.ts:30</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Handle the entire event flow thorough the engine. first handles aquiring the event via the controller and them
+									await its runtime through the engine</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -202,9 +224,6 @@
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_initfirebase_.html">&quot;init<wbr>Firebase&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_docker_pre_requisites_builder_.html">&quot;src/builders/docker_<wbr>pre_<wbr>requisites.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -215,6 +234,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_folder_builder_.html">&quot;src/builders/folder.builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_builders_results_builder_.html">&quot;src/builders/results.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_script_files_builder_.html">&quot;src/builders/script_<wbr>files.builder&quot;</a>
@@ -229,10 +251,10 @@
 						<a href="../modules/_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_handlers_results_handler_.html">&quot;src/handlers/results.handler&quot;</a>
+						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_container_health_manager_interface_.html">&quot;src/interfaces/container_<wbr>health.manager.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_<wbr>pre_<wbr>requisites.builder.interface&quot;</a>
@@ -244,16 +266,31 @@
 						<a href="../modules/_src_interfaces_event_interface_.html">&quot;src/interfaces/event.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_event_config_interface_.html">&quot;src/interfaces/event_<wbr>config.interface&quot;</a>
+						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_execution_command_builder_interface_.html">&quot;src/interfaces/execution_<wbr>command.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_file_builder_interface_.html">&quot;src/interfaces/file.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_folder_builder_interface_.html">&quot;src/interfaces/folder.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_post_event_handler_trigger_service_interface_.html">&quot;src/interfaces/post_<wbr>event_<wbr>handler_<wbr>trigger.service.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_results_handler_interface_.html">&quot;src/interfaces/results.handler.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_<wbr>files.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_managers_container_health_manager_.html">&quot;src/managers/container_<wbr>health.manager&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+						<a href="../modules/_src_services_post_event_handler_trigger_service_.html">&quot;src/services/post_<wbr>event_<wbr>handler_<wbr>trigger.service&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -262,19 +299,19 @@
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-class tsd-parent-kind-module">
-						<a href="_src_handlers_events_handler_.eventshandler.html" class="tsd-kind-icon">Events<wbr>Handler</a>
+						<a href="_src_handlers_events_handler_.eventhandler.html" class="tsd-kind-icon">Event<wbr>Handler</a>
 						<ul>
 							<li class=" tsd-kind-constructor tsd-parent-kind-class">
-								<a href="_src_handlers_events_handler_.eventshandler.html#constructor" class="tsd-kind-icon">constructor</a>
+								<a href="_src_handlers_events_handler_.eventhandler.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_src_handlers_events_handler_.eventshandler.html#eventcontroller" class="tsd-kind-icon">event<wbr>Controller</a>
+								<a href="_src_handlers_events_handler_.eventhandler.html#eventcontroller" class="tsd-kind-icon">event<wbr>Controller</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
-								<a href="_src_handlers_events_handler_.eventshandler.html#posteventhandlertrigger" class="tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger</a>
+								<a href="_src_handlers_events_handler_.eventhandler.html#posteventhandlertrigger" class="tsd-kind-icon">post<wbr>Event<wbr>Handler<wbr>Trigger</a>
 							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
-								<a href="_src_handlers_events_handler_.eventshandler.html#handleevent" class="tsd-kind-icon">handle<wbr>Event</a>
+								<a href="_src_handlers_events_handler_.eventhandler.html#handle" class="tsd-kind-icon">handle</a>
 							</li>
 						</ul>
 					</li>

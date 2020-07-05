@@ -69,6 +69,14 @@
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
+			<section class="tsd-panel tsd-comment">
+				<div class="tsd-comment tsd-typography">
+					<div class="lead">
+						<p>A Controller class that holds logic to get events from the firebase storage.
+						used to return an event (IEvent) from a given event Meta (IEventMeta)</p>
+					</div>
+				</div>
+			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
@@ -104,7 +112,9 @@
 						<section class="tsd-index-section ">
 							<h3>Methods</h3>
 							<ul class="tsd-index-list">
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_controller_event_controller_.eventcontroller.html#buildstoragepath" class="tsd-kind-icon">build<wbr>Storage<wbr>Path</a></li>
 								<li class="tsd-kind-method tsd-parent-kind-class"><a href="_src_controller_event_controller_.eventcontroller.html#getevent" class="tsd-kind-icon">get<wbr>Event</a></li>
+								<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><a href="_src_controller_event_controller_.eventcontroller.html#getfilespromise" class="tsd-kind-icon">get<wbr>Files<wbr>Promise</a></li>
 							</ul>
 						</section>
 					</div>
@@ -122,9 +132,14 @@
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/controller/event.controller.ts#L10">src/controller/event.controller.ts:10</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L14">src/controller/event.controller.ts:14</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Initializing the Controller.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -145,18 +160,18 @@
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html">IEventController</a>.<a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html#eventsbucket">eventsBucket</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/controller/event.controller.ts#L8">src/controller/event.controller.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L12">src/controller/event.controller.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
 					<a name="eventsstorage" class="tsd-anchor"></a>
 					<h3>events<wbr>Storage</h3>
-					<div class="tsd-signature tsd-kind-icon">events<wbr>Storage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">any</span></div>
+					<div class="tsd-signature tsd-kind-icon">events<wbr>Storage<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Bucket</span></div>
 					<aside class="tsd-sources">
 						<p>Implementation of <a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html">IEventController</a>.<a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html#eventsstorage">eventsStorage</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/controller/event.controller.ts#L10">src/controller/event.controller.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L14">src/controller/event.controller.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -166,13 +181,41 @@
 					<div class="tsd-signature tsd-kind-icon">user<wbr>Submission<wbr>Folder<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span><span class="tsd-signature-symbol"> = USER_SUBMISSIONS_FOLDER</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/controller/event.controller.ts#L9">src/controller/event.controller.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L13">src/controller/event.controller.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Methods</h2>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="buildstoragepath" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> build<wbr>Storage<wbr>Path</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">build<wbr>Storage<wbr>Path<span class="tsd-signature-symbol">(</span>eventMeta<span class="tsd-signature-symbol">: </span><a href="../interfaces/_src_interfaces_event_interface_.ieventmeta.html" class="tsd-signature-type">IEventMeta</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L27">src/controller/event.controller.ts:27</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private for building the firebase storage file path from the event meta.</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5>eventMeta: <a href="../interfaces/_src_interfaces_event_interface_.ieventmeta.html" class="tsd-signature-type">IEventMeta</a></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">string</span></h4>
+						</li>
+					</ul>
+				</section>
 				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class">
 					<a name="getevent" class="tsd-anchor"></a>
 					<h3>get<wbr>Event</h3>
@@ -184,9 +227,16 @@
 							<aside class="tsd-sources">
 								<p>Implementation of <a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html">IEventController</a>.<a href="../interfaces/_src_interfaces_event_controller_interface_.ieventcontroller.html#getevent">getEvent</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/d260eca/src/controller/event.controller.ts#L17">src/controller/event.controller.ts:17</a></li>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L52">src/controller/event.controller.ts:52</a></li>
 								</ul>
 							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>getting all the files that related to the relevant path
+										and performing filtering in order to ensure only 1 relevant event.
+									fetching the file api from firebase and serving as an event.</p>
+								</div>
+							</div>
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
@@ -194,6 +244,35 @@
 								</li>
 							</ul>
 							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/_src_interfaces_event_interface_.ievent.html" class="tsd-signature-type">IEvent</a><span class="tsd-signature-symbol">&gt;</span></h4>
+						</li>
+					</ul>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-method tsd-parent-kind-class tsd-is-private">
+					<a name="getfilespromise" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagPrivate">Private</span> get<wbr>Files<wbr>Promise</h3>
+					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class tsd-is-private">
+						<li class="tsd-signature tsd-kind-icon">get<wbr>Files<wbr>Promise<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">...</span>args<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">File</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></li>
+					</ul>
+					<ul class="tsd-descriptions">
+						<li class="tsd-description">
+							<aside class="tsd-sources">
+								<ul>
+									<li>Defined in <a href="https://github.com/solanoam/assembler-submit-engine/blob/86e26c3/src/controller/event.controller.ts#L37">src/controller/event.controller.ts:37</a></li>
+								</ul>
+							</aside>
+							<div class="tsd-comment tsd-typography">
+								<div class="lead">
+									<p>Private for getting files api from google&#39;s firebase. wrapping this api in
+									Promise for better management</p>
+								</div>
+							</div>
+							<h4 class="tsd-parameters-title">Parameters</h4>
+							<ul class="tsd-parameters">
+								<li>
+									<h5><span class="tsd-flag ts-flagRest">Rest</span> <span class="tsd-signature-symbol">...</span>args: <span class="tsd-signature-type">any</span><span class="tsd-signature-symbol">[]</span></h5>
+								</li>
+							</ul>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">File</span><span class="tsd-signature-symbol">[]</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -212,9 +291,6 @@
 						<a href="../modules/_index_.html">&quot;index&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_initfirebase_.html">&quot;init<wbr>Firebase&quot;</a>
-					</li>
-					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_docker_pre_requisites_builder_.html">&quot;src/builders/docker_<wbr>pre_<wbr>requisites.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
@@ -225,6 +301,9 @@
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_folder_builder_.html">&quot;src/builders/folder.builder&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_builders_results_builder_.html">&quot;src/builders/results.builder&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_builders_script_files_builder_.html">&quot;src/builders/script_<wbr>files.builder&quot;</a>
@@ -239,10 +318,10 @@
 						<a href="../modules/_src_handlers_events_handler_.html">&quot;src/handlers/events.handler&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_handlers_results_handler_.html">&quot;src/handlers/results.handler&quot;</a>
+						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_container_handler_interface_.html">&quot;src/interfaces/container.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_container_health_manager_interface_.html">&quot;src/interfaces/container_<wbr>health.manager.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_interfaces_docker_pre_requisites_builder_interface_.html">&quot;src/interfaces/docker_<wbr>pre_<wbr>requisites.builder.interface&quot;</a>
@@ -254,16 +333,31 @@
 						<a href="../modules/_src_interfaces_event_interface_.html">&quot;src/interfaces/event.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_event_config_interface_.html">&quot;src/interfaces/event_<wbr>config.interface&quot;</a>
+						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_interfaces_events_handler_interface_.html">&quot;src/interfaces/events.handler.interface&quot;</a>
+						<a href="../modules/_src_interfaces_execution_command_builder_interface_.html">&quot;src/interfaces/execution_<wbr>command.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_file_builder_interface_.html">&quot;src/interfaces/file.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_folder_builder_interface_.html">&quot;src/interfaces/folder.builder.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_post_event_handler_trigger_service_interface_.html">&quot;src/interfaces/post_<wbr>event_<wbr>handler_<wbr>trigger.service.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_results_handler_interface_.html">&quot;src/interfaces/results.handler.interface&quot;</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="../modules/_src_interfaces_script_files_builder_interface_.html">&quot;src/interfaces/script_<wbr>files.builder.interface&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="../modules/_src_managers_container_health_manager_.html">&quot;src/managers/container_<wbr>health.manager&quot;</a>
 					</li>
 					<li class=" tsd-kind-module">
-						<a href="../modules/_src_services_post_event_handler_trigger_.html">&quot;src/services/post.event.handler.trigger&quot;</a>
+						<a href="../modules/_src_services_post_event_handler_trigger_service_.html">&quot;src/services/post_<wbr>event_<wbr>handler_<wbr>trigger.service&quot;</a>
 					</li>
 				</ul>
 			</nav>
@@ -286,8 +380,14 @@
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="_src_controller_event_controller_.eventcontroller.html#usersubmissionfolder" class="tsd-kind-icon">user<wbr>Submission<wbr>Folder</a>
 							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_controller_event_controller_.eventcontroller.html#buildstoragepath" class="tsd-kind-icon">build<wbr>Storage<wbr>Path</a>
+							</li>
 							<li class=" tsd-kind-method tsd-parent-kind-class">
 								<a href="_src_controller_event_controller_.eventcontroller.html#getevent" class="tsd-kind-icon">get<wbr>Event</a>
+							</li>
+							<li class=" tsd-kind-method tsd-parent-kind-class tsd-is-private">
+								<a href="_src_controller_event_controller_.eventcontroller.html#getfilespromise" class="tsd-kind-icon">get<wbr>Files<wbr>Promise</a>
 							</li>
 						</ul>
 					</li>
@@ -316,6 +416,9 @@
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
 			</ul>
 		</div>
 	</div>
