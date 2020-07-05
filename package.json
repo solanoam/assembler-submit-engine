@@ -6,7 +6,7 @@
    "main": "index.js",
    "repository": "https://github.com/solanoam/assembler-submit-engine",
    "devDependencies": {
-      "@firebase/firestore-types": "^1.8.0",
+      "@google-cloud/storage": "5.1.1",
       "@types/node": "^8.0.29",
       "ts-node": "^8.5.2",
       "typedoc": "^0.17.7",

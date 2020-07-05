@@ -1,7 +1,9 @@
 import {IEvent, IEventMeta} from "./event.interface";
 import {IEventController} from "./event.controller.interface";
-import { EventController } from '../controller/event.controller';
+import { IPostEventHandlerTrigger } from "./post_event_handler_trigger.service.interface";
 
 export interface IEventsHandler {
-    handleEvent(event: IEventMeta): any
+    eventController: IEventController
+    postEventHandlerTrigger: IPostEventHandlerTrigger
+    handle(event: IEventMeta): any
 }

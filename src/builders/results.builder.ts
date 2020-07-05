@@ -1,41 +1,28 @@
 import { readFileSync, existsSync } from "fs";
 import { DEFAULT_ENCODING } from "../../consts";
-import { time } from 'console';
-import { isThisTypeNode } from "typescript";
-import { filePaths } from "../managers/container_health.manager";
+import { FilePaths } from "../managers/container_health.manager";
+import { IResultsBuilder, ResultsStatus, IResults } from "../interfaces/results.handler.interface";
 
-export enum ResultsStatus {
-    success=200,
-    compileTimeout=408,
-    notCompiled=417,
-    runtimeError=420,
-    tooManyRequests=429,
-    maliciousUserCode=451,
-    runtimeTimeout=508,
-}
-
-export interface IResults {
-    output: string,
-    status: ResultsStatus,
-}
-
-export interface IResultsBuilder {
-    output: string
-    status: ResultsStatus,
-    filePaths: filePaths
-    build(): IResults
-}
-
+/**
+ * Results builder, builds the results from the given state of the container.
+ * uses logic the correctly asses the status referacnced the container file system 
+ */
 export default class ResultsBuilder implements IResultsBuilder {
     output: string;
     status: ResultsStatus;
-    filePaths: filePaths;
+    filePaths: FilePaths;
 
+    /**
+     * Initializing the results builder. 
+     */
     constructor (filePaths, timeout) {
         this.initPaths(filePaths)
         this.handleResultsStatus(timeout)
     }
 
+    /**
+     * general aux private for getting a file output in the given path . 
+     */
     private getFileOutput = (filePath: string) => {
         try {
             return readFileSync(filePath, DEFAULT_ENCODING);
@@ -45,13 +32,19 @@ export default class ResultsBuilder implements IResultsBuilder {
         }
     }
 
-    private initPaths = (filePaths: filePaths) => {
+    /**
+     * initializing the different paths to be correct and relative to the current process. 
+     */
+    private initPaths = (filePaths: FilePaths) => {
         const initialledFilePaths = {}
         for (const [key, value] of Object.entries(filePaths)) {
             initialledFilePaths[key] = `${process.cwd()}/${value}`
         }
-        this.filePaths = initialledFilePaths as filePaths
+        this.filePaths = initialledFilePaths as FilePaths
     }
+    /**
+     * High level handler that calls different calculations whether runtime timeout occurred or not
+     */
     private handleResultsStatus = (timeout: Boolean): void => {
         if (timeout) {
             this.calcTimeoutResultStatus()
@@ -61,6 +54,9 @@ export default class ResultsBuilder implements IResultsBuilder {
         }
     }
 
+    /**
+     * Calculate Timeout statuses 
+     */
     private calcTimeoutResultStatus = () : void => {
         if (this.isCompilerTimeout()) {
             this.status = ResultsStatus.compileTimeout
@@ -72,6 +68,9 @@ export default class ResultsBuilder implements IResultsBuilder {
         }
     }
 
+    /**
+     * Calculate finish statuses 
+     */
     private calcFinishedResultStatus = () : void => {
         if (this.isNotCompiled()){
             this.status = ResultsStatus.notCompiled
@@ -83,14 +82,23 @@ export default class ResultsBuilder implements IResultsBuilder {
         }
     }
 
+    /**
+     * Private logic for compiler timeout calculation 
+     */
     private isCompilerTimeout = (): Boolean => {
         return !existsSync(this.filePaths.compilerDumpFileNamePath)
     }
 
+    /**
+     * Private logic for compiler error calculation
+     */
     private isNotCompiled = (): Boolean => {
         return !existsSync(this.filePaths.compiledFilePath)
     }
 
+    /**
+     * Main public method, builds the results
+     */
     public build = (): IResults => {
         return {
             output: this.output,
