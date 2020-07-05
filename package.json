@@ -27,6 +27,7 @@
       "env_install": "/bin/bash /bin/install.node.sh && /bin/bash /bin/install.docker.sh && /bin/bash /bin/install.masm.sh",
       "build": "tsc",
       "start": "yarn build && node build/index.js",
-      "build:docs": "typedoc --options . && touch docs/.nojekyll"
-   }
+      "build:docs": "typedoc --options . && touch docs/.nojekyll && git add docs"
+   },
+   "pre-commit": "yarn build:docs"
 }
