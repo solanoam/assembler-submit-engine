@@ -11,12 +11,12 @@ export const CONTAINER_POLLING_INTERVAL = 200
 /**
  * given name for the text dump from the dos env
  */
-export const resultsFileName = "TD.txt"
+export const resultsFileName = "TD.TXT"
 
 /**
  * given name for the compiled file from the dos env
  */
-export const compiledFileName = "UC.exe"
+export const compiledFileName = "UC.EXE"
 
 /**
  * given name for the compiler dump from the dos env
@@ -36,7 +36,7 @@ export const linkObjName = "UCO.OBJ"
 /**
  * given name for the finished running flag from the dos env
  */
-export const finishedRunningFile = 'RF.txt'
+export const finishedRunningFile = 'RF.TXT'
 
 /**
  * given name for the user code file from the dos env
