@@ -55,7 +55,7 @@ export const scriptFilePaths = [
 /**
  * path for the masm lib on the host file system
  */
-export const masmBineriesPath = "/Users/noam5456/Downloads/masm611"
+export const masmBineriesPath = "/root/masm"
 
 /**
  * docker execution command prefix
