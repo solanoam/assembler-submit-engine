@@ -47,8 +47,6 @@ export const asmFileName = 'UC.asm';
  * paths for the static script files in the host file system
  */
 export const scriptFilePaths = [
-    'dos/GMGPD.asm',
-    'dos/GPD.asm',
     'dos/RS.bat'
 ];
 
